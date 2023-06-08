@@ -4,6 +4,7 @@ export default {
         "./resources/**/*.blade.php",
         "./resources/**/*.js",
         "./resources/**/*.vue",
+        "./node_modules/flowbite/**/*.js",
     ],
     theme: {
         extend: {
@@ -25,10 +26,10 @@ export default {
                 sec: {
                     100: "#fafafa",
                     200: "#ffd799",
-                    300: "#f5f5f5",
+                    300: "#f7f7f8",
                     400: "#f5f5f6",
                     500: "#dddddd",
-                    600: "#dddddd",
+                    600: "#eeeeee",
                     700: "#c4c4c4",
                     800: "#acacac",
                     900: "#acacac",
@@ -36,6 +37,6 @@ export default {
             },
         },
     },
-    plugins: [],
+    plugins: [require( 'flowbite/plugin')],
 };
 
