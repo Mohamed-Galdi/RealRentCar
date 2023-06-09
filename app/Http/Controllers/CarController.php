@@ -12,7 +12,8 @@ class CarController extends Controller
      */
     public function index()
     {
-        //
+        $cars = Car::all();
+        return view('admin.cars', compact('cars'));
     }
 
     /**
@@ -20,7 +21,7 @@ class CarController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.createCar');
     }
 
     /**

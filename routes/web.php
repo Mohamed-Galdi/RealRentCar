@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\CarController;
+use App\Http\Controllers\ReservationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,11 +16,23 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
+Route::prefix('admin')->group(function () {
+    Route::get('/', function () {
+        return view('admin.adminLogin');
+    });
+    Route::get('/dashboard', function () {
+        return view('admin.adminDashboard');
+    })->name('adminDashboard');
+});
 
 
 
+Route::prefix('admin')->group(function () {
+    Route::resource('cars', CarController::class);
+});
 
 
+Route::resource('reservations', ReservationController::class);
 
 
 
@@ -31,7 +45,7 @@ Route::get('/', function () {
 
 Route::get('/test', function () {
     return view('test');
-});
+})->name('test');
 
 Auth::routes();
 

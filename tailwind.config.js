@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+const flowbitePlugin = require("flowbite/plugin");
+const formsPlugin = require("@tailwindcss/forms");
 export default {
     content: [
         "./resources/**/*.blade.php",
@@ -37,6 +39,6 @@ export default {
             },
         },
     },
-    plugins: [require( 'flowbite/plugin')],
+    plugins: [flowbitePlugin, formsPlugin],
 };
 

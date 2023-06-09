@@ -13,7 +13,7 @@
                         placeholder="for test: test@email.com">
                     @error('email')
                         <span>
-                            <strong>{{ $message }}</strong>
+                            <strong class="text-red-500">{{ $message }}</strong>
                         </span>
                     @enderror
                 </div>
@@ -39,7 +39,7 @@
                         me</label>
                 </div>
                 <button type="submit"
-                    class="text-white bg-pr-400 hover:bg-pr-600 focus:ring-4 focus:outline-none focus:ring-pr-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-pr-600 dark:hover:bg-pr-700 dark:focus:ring-pr-800">Submit</button>
+                    class="text-white bg-pr-400 hover:bg-pr-600 focus:ring-4 focus:outline-none focus:ring-pr-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-pr-600 dark:hover:bg-pr-700 dark:focus:ring-pr-800">Login</button>
 
                 @if (Route::has('password.request'))
                     <a class="m-2 text-gray-600 hover:text-blue-600 hover:cursor-pointer" href="{{ route('password.request') }}">
