@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Car;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Storage;
+
 
 class CarController extends Controller
 {
@@ -29,7 +32,28 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $request->validate([
+        //     'brand'
+        // ]);
+
+        $car = new Car;
+        $car->brand = $request->brand;
+        $car->model = $request->model;
+        $car->engine = $request->engine;
+        $car->quantity = $request->quantity;
+        $car->price_per_day = $request->price_per_day;
+        $car->insurance_status = $request->insurance_status;
+        $car->status = $request->status;
+
+        if ($request->hasFile('image')) {
+            $imageName = $request->brand . '-' . $request->model . '-' . $request->engine . '-' . Str::random(10) . '.' . $request->file('image')->extension();
+            $image = $request->file('image');
+            $path = $image->storeAs('images/cars', $imageName);
+            $car->image = $path;
+        }
+        $car->save();
+
+        return redirect()->route('cars.index');
     }
 
     /**
@@ -45,7 +69,8 @@ class CarController extends Controller
      */
     public function edit(Car $car)
     {
-        //
+        $car = Car::findOrFail($car->id);
+        return view('admin.updateCar', compact('car'));
     }
 
     /**
@@ -53,7 +78,30 @@ class CarController extends Controller
      */
     public function update(Request $request, Car $car)
     {
-        //
+        $car = Car::findOrFail($car->id);
+
+        $car->brand = $request->brand;
+        $car->model = $request->model;
+        $car->engine = $request->engine;
+        $car->quantity = $request->quantity;
+        $car->price_per_day = $request->price_per_day;
+        $car->insurance_status = $request->insurance_status;
+        $car->status = $request->status;
+
+        if ($request->hasFile('image')) {
+
+            $filename = basename($car->image);
+            Storage::disk('local')->delete('images/cars/' . $filename);
+            $car->delete();
+            
+            $imageName = $request->brand . '-' . $request->model . '-' . $request->engine . '-' . Str::random(10) . '.' . $request->file('image')->extension();
+            $image = $request->file('image');
+            $path = $image->storeAs('images/cars', $imageName);
+            $car->image = $path;
+        }
+        $car->save();
+
+        return redirect()->route('cars.index');
     }
 
     /**
@@ -61,6 +109,18 @@ class CarController extends Controller
      */
     public function destroy(Car $car)
     {
-        //
+        $car = Car::findOrFail($car->id);
+        if ($car->image) {
+            // Get the filename from the image path
+            $filename = basename($car->image);
+
+            // Delete the image file from the storage
+            Storage::disk('local')->delete('images/cars/'. $filename);
+            $car->delete();
+        }
+
+
+
+        return redirect()->route('cars.index');
     }
 }

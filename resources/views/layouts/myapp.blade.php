@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
     @vite('resources/css/app.css')
     {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
-    <link rel="icon" type="image/x-icon" href="/images/logos/LOGO.png">
+    <link rel="icon" type="image/x-icon" href="/images/logos/LOGOtext.png">
     @vite('node_modules/flowbite/dist/flowbite.min.js')
 </head>
 
@@ -18,7 +18,7 @@
 
     {{-- -------------------------------------------------------------- Header -------------------------------------------------------------- --}}
     @guest
-        <header >
+        <header>
             <nav class="bg-sec-600 border-gray-200 px-4 lg:px-6 py-4 dark:bg-gray-800 ">
                 <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl drop-shadow-2xl">
                     {{-- LOGO --}}
@@ -76,11 +76,13 @@
                                     </div>
                             </li>
                             <li>
-                                <div class="group text-center">
-                                    <div class="group-hover:cursor-pointer">Cars</div>
-                                    <div
-                                        class="block invisible bg-pr-400 w-8 h-1 rounded-md text-center -bottom-1 mx-auto relative group-hover:visible">
-                                    </div>
+                                <a href="{{ route('cars') }}">
+                                    <div class="group text-center">
+                                        <div class="group-hover:cursor-pointer">Cars</div>
+                                        <div
+                                            class="block invisible bg-pr-400 w-8 h-1 rounded-md text-center -bottom-1 mx-auto relative group-hover:visible">
+                                        </div>
+                                </a>
                             </li>
                             <li>
                                 <div class="group text-center">
@@ -195,18 +197,27 @@
                         <div class="hidden justify-between items-center w-full lg:flex lg:w-auto" id="mobile-menu-2">
                             <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
                                 <li>
-                                    <div class="group text-center">
-                                        <div class="group-hover:cursor-pointer">Home</div>
-                                        <div
-                                            class="block invisible bg-pr-400 w-12 h-1 rounded-md text-center -bottom-1 mx-auto relative group-hover:visible">
+
+
+                                        <div class="group text-center">
+                                            <div class="group-hover:cursor-pointer">Home</div>
+                                            <div
+                                                class="block invisible bg-pr-400 w-12 h-1 rounded-md text-center -bottom-1 mx-auto relative group-hover:visible">
+                                            </div>
                                         </div>
+
+
+
                                 </li>
                                 <li>
+                                    <a href="{{ route('cars') }}">
                                     <div class="group text-center">
                                         <div class="group-hover:cursor-pointer">Cars</div>
                                         <div
                                             class="block invisible bg-pr-400 w-8 h-1 rounded-md text-center -bottom-1 mx-auto relative group-hover:visible">
                                         </div>
+                                    </div>
+                                    </a>
                                 </li>
                                 <li>
                                     <div class="group text-center">

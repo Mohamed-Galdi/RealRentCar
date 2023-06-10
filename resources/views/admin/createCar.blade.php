@@ -1,7 +1,8 @@
 @extends('layouts.myapp')
 @section('content')
     <div class="my-20 flex flex-col justify-center  items-center mx-auto max-w-screen-xl ">
-        <form class=" w-full">
+        <form class=" w-full" action="{{ route('cars.store') }}" method="POST" enctype="multipart/form-data">
+            @csrf
             <div class="bg-white w-2/3 border-gray-600 border-2 rounded-md px-24 mx-auto mt-2 space-y-12 pb-8">
                 <div class=" border-b border-gray-900/10 pb-12">
                     <h2 class="mt-2 text-center font-bold text-lg leading-7 text-gray-900">Fill the new car details</h2>
@@ -41,7 +42,8 @@
                         </div>
 
                         <div class="sm:col-span-2">
-                            <label for="price_per_day" class="block text-sm font-medium leading-6 text-gray-900">Price per day</label>
+                            <label for="price_per_day" class="block text-sm font-medium leading-6 text-gray-900">Price per
+                                day</label>
                             <div class="mt-2">
                                 <input type="text" name="price_per_day" id="price_per_day"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm sm:leading-6">
@@ -67,7 +69,7 @@
                                         <label for="file-upload"
                                             class="relative cursor-pointer rounded-md bg-white font-semibold text-pr-400 focus-within:outline-none focus-within:ring-2 focus-within:ring-pr-400 focus-within:ring-offset-2 hover:text-pr-400">
                                             <span>Upload a file</span>
-                                            <input id="file-upload" name="file-upload" type="file" class="sr-only">
+                                            <input id="file-upload" name="image" type="file" class="sr-only">
                                         </label>
                                         <p class="pl-1">or drag and drop</p>
                                     </div>
@@ -77,13 +79,14 @@
                         </div>
 
                         <div class="sm:col-span-3">
-                            <label for="insurance_status" class="block text-sm font-medium leading-6 text-gray-900">Insurance</label>
+                            <label for="insurance_status"
+                                class="block text-sm font-medium leading-6 text-gray-900">Insurance</label>
                             <div class="mt-2">
                                 <select id="insurance_status" name="insurance_status"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:max-w-xs sm:text-sm sm:leading-6">
-                                    <option>Active</option>
-                                    <option>Pending</option>
-                                    <option>Expired</option>
+                                    <option value="active" >Active</option>
+                                    <option value="pending" >Pending</option>
+                                    <option value="expired" >Expired</option>
                                 </select>
                             </div>
                         </div>
@@ -93,8 +96,8 @@
                             <div class="mt-2">
                                 <select id="status" name="status"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:max-w-xs sm:text-sm sm:leading-6">
-                                    <option>Available</option>
-                                    <option>Unavailable</option>
+                                    <option value="available" >Available</option>
+                                    <option value="unavailable" >Unavailable</option>
                                 </select>
                             </div>
                         </div>
@@ -105,7 +108,8 @@
 
 
                 <div class="flex items-center justify-center gap-x-6 mb-6">
-                    <button type="reset" class="text-sm font-semibold leading-6 text-gray-900 border-2 border-pr-200 p-1 w-20 rounded-md hover:bg-white bg-sec-300">Cancel</button>
+                    <button type="reset"
+                        class="text-sm font-semibold leading-6 text-gray-900 border-2 border-pr-200 p-1 w-20 rounded-md hover:bg-white bg-sec-300">Cancel</button>
                     <button type="submit"
                         class="w-1/3 rounded-md bg-pr-400 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-pr-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pr-400">Save</button>
                 </div>

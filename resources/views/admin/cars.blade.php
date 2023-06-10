@@ -52,7 +52,7 @@
                             <td class="w-4 p-4">
                                 <div class="p-0.5 rounded-md border-2 border-pr-400 ">
 
-                                    <img src="{{ '/images' . '/cars/' . $car->image }}" alt="car image">
+                                    <img src="{{ '/' . $car->image }}" alt="car image">
                                 </div>
 
                             </td>
@@ -78,11 +78,15 @@
                             <td class="px-6 py-4">
                                 {{ $car->reserved }}
                             </td>
-                            <td class="flex items-center px-6 py-4 space-x-3">
-                                <a href="#"
-                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                <a href="#"
-                                    class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
+                            <td class="flex my-4 py-3  px-6  space-x-3 ">
+                                    <a href="{{ route('cars.edit', ['car' => $car->id]) }}"
+                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                    <form action="{{ route('cars.destroy', ['car' => $car->id]) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit"
+                                            class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</button>
+                                    </form>
                             </td>
                         </tr>
                     @endforeach
