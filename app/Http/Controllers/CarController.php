@@ -44,6 +44,8 @@ class CarController extends Controller
         $car->price_per_day = $request->price_per_day;
         $car->insurance_status = $request->insurance_status;
         $car->status = $request->status;
+        $car->reduce = $request->reduce;
+        $car->stars = $request->stars;
 
         if ($request->hasFile('image')) {
             $imageName = $request->brand . '-' . $request->model . '-' . $request->engine . '-' . Str::random(10) . '.' . $request->file('image')->extension();
@@ -87,13 +89,15 @@ class CarController extends Controller
         $car->price_per_day = $request->price_per_day;
         $car->insurance_status = $request->insurance_status;
         $car->status = $request->status;
+        $car->reduce = $request->reduce;
+        $car->stars = $request->stars;
 
         if ($request->hasFile('image')) {
 
             $filename = basename($car->image);
             Storage::disk('local')->delete('images/cars/' . $filename);
             $car->delete();
-            
+
             $imageName = $request->brand . '-' . $request->model . '-' . $request->engine . '-' . Str::random(10) . '.' . $request->file('image')->extension();
             $image = $request->file('image');
             $path = $image->storeAs('images/cars', $imageName);

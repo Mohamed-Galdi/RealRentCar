@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\CarController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\clientCarController;
+use App\Models\Car;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,7 +44,8 @@ Route::resource('reservations', ReservationController::class);
 
 
 Route::get('/', function () {
-    return view('home');
+    $cars = Car::take(6)->get();
+    return view('home', compact('cars') );
 })->name('home');
 
 Route::get('/test', function () {

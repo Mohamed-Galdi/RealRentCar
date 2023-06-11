@@ -1,19 +1,21 @@
 @extends('layouts.myapp')
 @section('content')
     <div class="my-20 flex flex-col justify-center  items-center mx-auto max-w-screen-xl ">
-        <form class=" w-full" action="{{ route('cars.update', ['car'=> $car->id]) }}" method="POST" enctype="multipart/form-data">
+        <form class=" w-full" action="{{ route('cars.update', ['car' => $car->id]) }}" method="POST"
+            enctype="multipart/form-data">
             @csrf
             @method('PUT')
             <div class="bg-white w-2/3 border-gray-600 border-2 rounded-md px-24 mx-auto mt-2 space-y-12 pb-8">
                 <div class=" border-b border-gray-900/10 pb-12">
-                    <h2 class="mt-2 text-center font-bold text-lg leading-7 text-gray-900">Updating the car: <span class="text-pr-400"> {{$car->brand}} {{$car->model}} {{$car->engine}}</span></h2>
+                    <h2 class="mt-2 text-center font-bold text-lg leading-7 text-gray-900">Updating the car: <span
+                            class="text-pr-400"> {{ $car->brand }} {{ $car->model }} {{ $car->engine }}</span></h2>
 
                     <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
 
                         <div class="sm:col-span-3">
                             <label for="brand" class="block text-sm font-medium leading-6 text-gray-900">Brand</label>
                             <div class="mt-2">
-                                <input type="text" name="brand" id="brand" value="{{$car->brand}}"
+                                <input type="text" name="brand" id="brand" value="{{ $car->brand }}"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm sm:leading-6">
                             </div>
                         </div>
@@ -21,7 +23,7 @@
                         <div class="sm:col-span-3">
                             <label for="model" class="block text-sm font-medium leading-6 text-gray-900">Model</label>
                             <div class="mt-2">
-                                <input type="text" name="model" id="model" value="{{$car->model}}"
+                                <input type="text" name="model" id="model" value="{{ $car->model }}"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm sm:leading-6">
                             </div>
                         </div>
@@ -29,7 +31,7 @@
                         <div class="sm:col-span-2 sm:col-start-1">
                             <label for="engine" class="block text-sm font-medium leading-6 text-gray-900">Engine</label>
                             <div class="mt-2">
-                                <input type="text" name="engine" id="engine" value="{{$car->engine}}"
+                                <input type="text" name="engine" id="engine" value="{{ $car->engine }}"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm sm:leading-6">
                             </div>
                         </div>
@@ -37,7 +39,7 @@
                         <div class="sm:col-span-2">
                             <label for="quantity" class="block text-sm font-medium leading-6 text-gray-900">Quantity</label>
                             <div class="mt-2">
-                                <input type="text" name="quantity" id="quantity" value="{{$car->quantity}}"
+                                <input type="text" name="quantity" id="quantity" value="{{ $car->quantity }}"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm sm:leading-6">
                             </div>
                         </div>
@@ -46,8 +48,40 @@
                             <label for="price_per_day" class="block text-sm font-medium leading-6 text-gray-900">Price per
                                 day</label>
                             <div class="mt-2">
-                                <input type="text" name="price_per_day" id="price_per_day" value="{{$car->price_per_day}}"
+                                <input type="text" name="price_per_day" id="price_per_day"
+                                    value="{{ $car->price_per_day }}"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm sm:leading-6">
+                            </div>
+                        </div>
+
+                        <div class="sm:col-span-3">
+                            <label for="insurance_status" class="block text-sm font-medium leading-6 text-gray-900">Reduce %
+                            </label>
+                            <div class="mt-2">
+                                <input type="number" name="reduce" id="reduce"
+                                    value="{{ $car->reduce }}"
+                                    class="block w-full
+                                    rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300
+                                    placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm
+                                    sm:leading-6">
+                            </div>
+                        </div>
+
+                        <div class="sm:col-span-3">
+                            <label for="stars" class="block text-sm font-medium leading-6 text-gray-900">Car
+                                stars</label>
+                            <div class="mt-2">
+                                <select id="stars" name="stars"
+                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:max-w-xs sm:text-sm sm:leading-6">
+                                    <option disabled selected value="1">
+                                        ⭐⭐⭐⭐⭐
+                                    </option>
+                                    <option value="1" {{ $car->stars == '1' ? 'selected' : '' }}>1/5</option>
+                                    <option value="2" {{ $car->stars == '2' ? 'selected' : '' }}>2/5</option>
+                                    <option value="2" {{ $car->stars == '3' ? 'selected' : '' }}>3/5</option>
+                                    <option value="4" {{ $car->stars == '4' ? 'selected' : '' }}>4/5</option>
+                                    <option value="5" {{ $car->stars == '5' ? 'selected' : '' }}>5/5</option>
+                                </select>
                             </div>
                         </div>
 
@@ -70,7 +104,8 @@
                                         <label for="file-upload"
                                             class="relative cursor-pointer rounded-md bg-white font-semibold text-pr-400 focus-within:outline-none focus-within:ring-2 focus-within:ring-pr-400 focus-within:ring-offset-2 hover:text-pr-400">
                                             <span>Upload a file</span>
-                                            <input id="file-upload" name="image" type="file" class="sr-only" value="{{$car->image}}">
+                                            <input id="file-upload" name="image" type="file" class="sr-only"
+                                                value="{{ $car->image }}">
                                         </label>
                                         <p class="pl-1">or drag and drop</p>
                                     </div>
@@ -85,9 +120,12 @@
                             <div class="mt-2">
                                 <select id="insurance_status" name="insurance_status"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:max-w-xs sm:text-sm sm:leading-6">
-                                    <option value="active" {{ $car->insurance_status == 'active' ? 'selected' : '' }} >Active</option>
-                                    <option value="pending" {{ $car->insurance_status == 'pending' ? 'selected' : '' }} >Pending</option>
-                                    <option value="expired" {{ $car->insurance_status == 'expired' ? 'selected' : '' }} >Expired</option>
+                                    <option value="active" {{ $car->insurance_status == 'active' ? 'selected' : '' }}>
+                                        Active</option>
+                                    <option value="pending" {{ $car->insurance_status == 'pending' ? 'selected' : '' }}>
+                                        Pending</option>
+                                    <option value="expired" {{ $car->insurance_status == 'expired' ? 'selected' : '' }}>
+                                        Expired</option>
                                 </select>
                             </div>
                         </div>
@@ -97,8 +135,11 @@
                             <div class="mt-2">
                                 <select id="status" name="status"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:max-w-xs sm:text-sm sm:leading-6">
-                                    <option value="available" {{ $car->insurance_status == 'available' ? 'selected' : '' }} >Available</option>
-                                    <option value="unavailable" {{ $car->insurance_status == 'unavailable' ? 'selected' : '' }} >Unavailable</option>
+                                    <option value="available"
+                                        {{ $car->insurance_status == 'available' ? 'selected' : '' }}>Available</option>
+                                    <option value="unavailable"
+                                        {{ $car->insurance_status == 'unavailable' ? 'selected' : '' }}>Unavailable
+                                    </option>
                                 </select>
                             </div>
                         </div>

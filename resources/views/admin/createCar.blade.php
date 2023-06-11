@@ -50,6 +50,32 @@
                             </div>
                         </div>
 
+                        <div class="sm:col-span-3">
+                            <label for="insurance_status"
+                                class="block text-sm font-medium leading-6 text-gray-900">Reduce % </label>
+                            <div class="mt-2">
+                                <input type="number" name="reduce" id="reduce"
+                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm sm:leading-6">
+                            </div>
+                        </div>
+
+                        <div class="sm:col-span-3">
+                            <label for="stars" class="block text-sm font-medium leading-6 text-gray-900">Car stars</label>
+                            <div class="mt-2">
+                                <select id="stars" name="stars"
+                                    class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:max-w-xs sm:text-sm sm:leading-6">
+                                    <option disabled selected value="1" >
+                                        ⭐⭐⭐⭐⭐
+                                    </option>
+                                    <option value="1" >1/5</option>
+                                    <option value="2" >2/5</option>
+                                    <option value="2" >3/5</option>
+                                    <option value="4" >4/5</option>
+                                    <option value="5" >5/5</option>
+                                </select>
+                            </div>
+                        </div>
+
 
 
 
