@@ -8,8 +8,7 @@
                 <div class="mb-6">
                     <label for="name" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Name : </label>
                     <input type="text" id="name" name="name" value="{{ old('name') }}"
-                        class="bg-pr-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-pr-500 focus:border-pr-500 block w-full p-2.5 "
-                    >
+                        class="bg-pr-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-pr-500 focus:border-pr-500 block w-full p-2.5 ">
                     @error('name')
                         <span>
                             <strong>{{ $message }}</strong>
@@ -18,15 +17,37 @@
                 </div>
 
                 <div class="mb-6">
-                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email Address : </label>
+                    <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email Address
+                        : </label>
                     <input type="email" id="email" name="email" value="{{ old('name') }}"
-                        class="bg-pr-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-pr-500 focus:border-pr-500 block w-full p-2.5 "
-                    >
+                        class="bg-pr-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-pr-500 focus:border-pr-500 block w-full p-2.5 ">
                     @error('email')
                         <span>
                             <strong>{{ $message }}</strong>
                         </span>
                     @enderror
+                </div>
+
+                <div class="flex justify-evenly items-center text-center">
+
+
+                   <div class="w-1/3">
+                     <label class=" " for="avatar_1"><img class="w-12" src="/images/avatars/avatar_1.jpg" alt=""></label>
+                     <input type="checkbox" id="avatar_1"  class=" checked:bg-red-700">
+                   </div>
+
+                   <div class="w-1/3">
+                    <p>OR</p>
+                   </div>
+
+
+
+                    <div>
+                        <input
+                        class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none "
+                        id="file_input" type="file">
+                    </div>
+
                 </div>
 
                 <div class="mb-6">
