@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Car;
 use App\Models\Insurance;
 use Illuminate\Http\Request;
 
@@ -12,7 +13,9 @@ class InsuranceController extends Controller
      */
     public function index()
     {
-        //
+        $insurances = Insurance::all();
+        $cars = Car::all();
+        return view('admin.insurances', compact('insurances', 'cars'));
     }
 
     /**
@@ -20,7 +23,9 @@ class InsuranceController extends Controller
      */
     public function create()
     {
-        //
+        $cars = Car::where('insu_id', null)->get();
+
+        return view('admin.createInsurance', compact('cars') );
     }
 
     /**
@@ -28,7 +33,33 @@ class InsuranceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $insurance = new Insurance;
+        $car = Car::find($request->car);
+
+        $insurance->car()->associate($car);
+
+        $insurance->company = $request->company;
+        $insurance->price = $request->price;
+        $insurance->start_date = $request->start_date;
+        $insurance->end_date = $request->end_date;
+        $insurance->type = $request->type;
+
+        if($request->end_date > now() ){
+            $insurance->status = 'Active';
+        }else{
+            $insurance->status = 'Expired';
+        }
+
+        $insurance->save();
+        $car->insu_id = $insurance->id;
+        $car->save();
+
+
+
+
+        return redirect()->route('insurances.index');
+
+
     }
 
     /**
@@ -60,6 +91,15 @@ class InsuranceController extends Controller
      */
     public function destroy(Insurance $insurance)
     {
-        //
+        $car = Car::where('insu_id', $insurance->id)->first();
+        if ($car) {
+            $car->insu_id = null;
+            $car->save();
+        }
+
+        $insurance->delete();
+
+        return redirect()->route('insurances.index');
     }
+
 }

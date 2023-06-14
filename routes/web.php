@@ -6,6 +6,7 @@ use App\Http\Controllers\CarController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\clientCarController;
 use App\Http\Controllers\adminDashboardController;
+use App\Http\Controllers\InsuranceController;
 use App\Models\Car;
 
 /*
@@ -28,6 +29,11 @@ Route::prefix('admin')->group(function () {
     )->name('adminDashboard');
 
     Route::resource('cars', CarController::class);
+
+    Route::resource('reservations', ReservationController::class);
+
+    Route::resource('insurances', InsuranceController::class);
+
 });
 
 

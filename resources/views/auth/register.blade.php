@@ -2,7 +2,7 @@
 @section('content')
     <div class="grid place-items-center h-screen" style="">
         <div class="border p-5 w-1/2 bg-sec-100 -mt-48">
-            <form method="POST" action="{{ route('register') }}">
+            <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                 @csrf
 
                 <div class="mb-6">
@@ -28,24 +28,55 @@
                     @enderror
                 </div>
 
-                <div class="flex justify-evenly items-center text-center">
+                <div class="flex justify-evenly px-6 py-4 items-center text-center">
 
+                    <div class="grid grid-cols-3 ">
+                        <div class="m-3">
+                            <input type="radio" name="avatar_option" value="/images/avatars/avatar_1.jpg" id="avatar_1" class="hidden" >
+                            <label class="" for="avatar_1">
+                                <img class=" avatar w-12 " src="/images/avatars/avatar_1.jpg" alt="">
+                            </label>
+                        </div>
+                        <div class="m-3">
+                            <input type="radio" name="avatar_option" value="/images/avatars/avatar_2.jpg" id="avatar_2" class="hidden">
+                            <label class="" for="avatar_2">
+                                <img class=" avatar w-12" src="/images/avatars/avatar_2.jpg" alt="">
+                            </label>
+                        </div>
+                        <div class="m-3">
+                            <input type="radio" name="avatar_option" value="/images/avatars/avatar_3.jpg" id="avatar_3" class="hidden">
+                            <label class="" for="avatar_3">
+                                <img class=" avatar w-12" src="/images/avatars/avatar_3.jpg" alt="">
+                            </label>
+                        </div>
+                        <div class="m-3">
+                            <input type="radio" name="avatar_option" value="/images/avatars/avatar_4.jpg" id="avatar_4" class="hidden">
+                            <label class="" for="avatar_4">
+                                <img class=" avatar w-12" src="/images/avatars/avatar_4.jpg" alt="">
+                            </label>
+                        </div>
+                        <div class="m-3">
+                            <input type="radio" name="avatar_option" value="/images/avatars/avatar_5.jpg" id="avatar_5" class="hidden">
+                            <label class="" for="avatar_5">
+                                <img class=" avatar w-12" src="/images/avatars/avatar_5.jpg" alt="">
+                            </label>
+                        </div>
+                        <div class="m-3">
+                            <input type="radio" name="avatar_option" value="/images/avatars/avatar_6.jpg"  id="avatar_6" class="hidden">
+                            <label class="" for="avatar_6">
+                                <img class=" avatar w-12" src="/images/avatars/avatar_6.jpg" alt="">
+                            </label>
+                        </div>
+                    </div>
 
-                   <div class="w-1/3">
-                     <label class=" " for="avatar_1"><img class="w-12" src="/images/avatars/avatar_1.jpg" alt=""></label>
-                     <input type="checkbox" id="avatar_1"  class=" checked:bg-red-700">
-                   </div>
-
-                   <div class="w-1/3">
-                    <p>OR</p>
-                   </div>
-
-
+                    <div class="w-1/3">
+                        <p>OR</p>
+                    </div>
 
                     <div>
                         <input
-                        class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none "
-                        id="file_input" type="file">
+                            class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-gray-50 focus:outline-none "
+                            id="file_input" type="file" name="avatar_choose">
                     </div>
 
                 </div>
@@ -90,4 +121,23 @@
         </div>
 
     </div>
+    <script>
+        var radios = document.querySelectorAll('input[type="radio"]');
+        var images = document.querySelectorAll('.avatar');
+
+        radios.forEach(function(radio, index) {
+            radio.addEventListener('change', function() {
+                if (this.checked) {
+                    images.forEach(function(image, imageIndex) {
+                        if (imageIndex === index) {
+                            image.classList.add('border', 'border-red-600', 'rounded-full', 'p-1');
+                        } else {
+                            image.classList.remove('border', 'border-red-600', 'rounded-full',
+                                'p-1');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
 @endsection

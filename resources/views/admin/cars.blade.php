@@ -73,20 +73,29 @@
                                 {{ $car->quantity }}
                             </td>
                             <td class="px-6 py-4">
-                                {{ $car->insurance_status }}
+
+
+                                @if ($car->insu_id != null)
+                                    <p class=" rounded-lg bg-green-100  text-green-700 text-center p-1">
+                                        Active</p>
+                                @else
+                                    <p class=" rounded-lg bg-red-100  text-red-700 text-center p-1">
+                                        Not Active</p>
+                                @endif
+
                             </td>
                             <td class="px-6 py-4">
-                                {{ $car->reserved }}
+                                {{ $car->status }}
                             </td>
                             <td class="flex my-4 py-3  px-6  space-x-3 ">
-                                    <a href="{{ route('cars.edit', ['car' => $car->id]) }}"
-                                        class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
-                                    <form action="{{ route('cars.destroy', ['car' => $car->id]) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
-                                        <button type="submit"
-                                            class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</button>
-                                    </form>
+                                <a href="{{ route('cars.edit', ['car' => $car->id]) }}"
+                                    class="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                                <form action="{{ route('cars.destroy', ['car' => $car->id]) }}" method="POST">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit"
+                                        class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</button>
+                                </form>
                             </td>
                         </tr>
                     @endforeach

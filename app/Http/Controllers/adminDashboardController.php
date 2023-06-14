@@ -18,8 +18,10 @@ class adminDashboardController extends Controller
         $clients = User::where('role', 'client')->count();
         $admins = User::where('role', 'admin')->count();
         $cars = Car::all();
+
         $reservations = Reservation::all();
         $insurances = Insurance::all();
-        return view('admin.adminDashboard', compact('clients', 'admins', 'cars', 'reservations', 'insurances'));
+        $avatars = User::all();
+        return view('admin.adminDashboard', compact('clients', 'avatars', 'admins', 'cars', 'reservations', 'insurances'));
     }
 }

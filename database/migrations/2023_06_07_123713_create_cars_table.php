@@ -21,7 +21,8 @@ return new class extends Migration
             $table->string('quantity');
             $table->string('status')->default('available');
             $table->boolean('reserved')->default(true);
-            $table->string('insurance_status')->default('inactive');
+            $table->unsignedBigInteger('insu_id')->nullable();
+            $table->foreign('insu_id')->references('id')->on('insurances')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
