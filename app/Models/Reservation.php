@@ -11,12 +11,11 @@ class Reservation extends Model
 
     public function user()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'client_id');
     }
 
     public function car()
     {
         return $this->belongsTo(Car::class);
     }
-
 }

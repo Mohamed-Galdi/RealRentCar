@@ -42,7 +42,7 @@ class CarController extends Controller
         $car->engine = $request->engine;
         $car->quantity = $request->quantity;
         $car->price_per_day = $request->price_per_day;
-        $car->insurance_status = $request->insurance_status;
+        // $car->insurance_status = $request->insurance_status;
         $car->status = $request->status;
         $car->reduce = $request->reduce;
         $car->stars = $request->stars;

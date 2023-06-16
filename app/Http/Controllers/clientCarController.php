@@ -12,7 +12,7 @@ class clientCarController extends Controller
      */
     public function index()
     {
-        $cars = Car::all();
+        $cars = Car::where('status', '=', 'available')->get();
         return view('cars.cars', compact('cars'));
     }
 

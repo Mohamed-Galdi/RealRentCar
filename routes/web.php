@@ -30,7 +30,7 @@ Route::prefix('admin')->group(function () {
 
     Route::resource('cars', CarController::class);
 
-    Route::resource('reservations', ReservationController::class);
+    // Route::resource('reservations', ReservationController::class);
 
     Route::resource('insurances', InsuranceController::class);
 
@@ -42,15 +42,20 @@ Route::get('/cars', [clientCarController::class, 'index'])->name('cars');
 
 
 
-Route::resource('reservations', ReservationController::class);
+// Route::resource('reservations', ReservationController::class)->except(['create']);
 
+Route::get('/reservations/{car}', [ReservationController::class, 'create'])->name('car.reservation');
+Route::post('/reservations/{car}', [ReservationController::class, 'store'])->name('car.reservationStore');
 
+Route::get('/thankyou', function () {
+    return view('thankyou');
+})->name('thankyou');
 
 
 
 
 Route::get('/', function () {
-    $cars = Car::take(6)->get();
+    $cars = Car::take(6)->where('status', '=', 'available')->get();
     return view('home', compact('cars') );
 })->name('home');
 

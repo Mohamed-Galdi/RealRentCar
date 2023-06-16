@@ -375,3 +375,4 @@ class CarSeeder extends Seeder
         ]);
     }
 }
+
