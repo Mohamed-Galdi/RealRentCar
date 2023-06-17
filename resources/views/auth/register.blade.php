@@ -1,7 +1,7 @@
 @extends('layouts.myapp')
 @section('content')
-    <div class="grid place-items-center h-screen" style="">
-        <div class="border p-5 w-1/2 bg-sec-100 -mt-48">
+    <div class="grid place-items-center " >
+        <div class="border p-5 w-1/2 bg-sec-100 my-12">
             <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                 @csrf
 

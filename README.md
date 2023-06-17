@@ -26,6 +26,8 @@ This is a car rental project developed for the graduation Project. It is built u
 
 6. Run the database migrations: `php artisan migrate`
 
+7. Seed database cars table: `php artisan db:seed --class=CarSeeder`
+
 7. `npm install` && `npm run dev`
 
 8. Start the development server: `php artisan serve`

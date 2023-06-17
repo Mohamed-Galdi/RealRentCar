@@ -20,9 +20,6 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('quantity');
             $table->string('status')->default('available');
-            $table->boolean('reserved')->default(true);
-            $table->unsignedBigInteger('insu_id')->nullable();
-            $table->foreign('insu_id')->references('id')->on('insurances')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

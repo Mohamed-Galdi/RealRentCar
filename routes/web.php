@@ -7,6 +7,7 @@ use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\clientCarController;
 use App\Http\Controllers\adminDashboardController;
 use App\Http\Controllers\InsuranceController;
+use App\Models\User;
 use App\Models\Car;
 
 /*
@@ -33,6 +34,14 @@ Route::prefix('admin')->group(function () {
     // Route::resource('reservations', ReservationController::class);
 
     Route::resource('insurances', InsuranceController::class);
+
+    Route::get('/users', function () {
+
+        $admins = User::where('role' , 'admin')->get();
+        $clients = User::where('role' , 'client')->get();
+
+        return view('admin.users' , compact('admins' , 'clients'));
+    })->name('users');
 
 });
 

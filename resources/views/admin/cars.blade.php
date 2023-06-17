@@ -52,7 +52,7 @@
                             <td class="w-4 p-4">
                                 <div class="p-0.5 rounded-md border-2 border-pr-400 ">
 
-                                    <img src="{{ '/' . $car->image }}" alt="car image">
+                                    <img src="{{  $car->image }}" alt="car image">
                                 </div>
 
                             </td>
@@ -104,5 +104,8 @@
             </table>
         </div>
 
+    </div>
+    <div class="flex justify-center mb-12 w-full">
+        {{ $cars->links('pagination::tailwind') }}
     </div>
 @endsection

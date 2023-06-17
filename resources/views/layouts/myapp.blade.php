@@ -13,9 +13,9 @@
     <link rel="icon" type="image/x-icon" href="/images/logos/LOGOtext.png">
     @vite('node_modules/flowbite/dist/flowbite.min.js')
     <style>
-         html {
-        scroll-behavior: smooth;
-    }
+        html {
+            scroll-behavior: smooth;
+        }
     </style>
 </head>
 
@@ -156,16 +156,18 @@
                                         <div class="group text-center">
                                             <div class="group-hover:cursor-pointer">Insurances</div>
                                             <div
-                                            class="block invisible bg-pr-400 w-18 h-1 rounded-md text-center -bottom-1 mx-auto relative group-hover:visible">
-                                        </div>
+                                                class="block invisible bg-pr-400 w-18 h-1 rounded-md text-center -bottom-1 mx-auto relative group-hover:visible">
+                                            </div>
                                     </a>
                                 </li>
                                 <li>
-                                    <div class="group text-center">
-                                        <div class="group-hover:cursor-pointer">Users</div>
-                                        <div
-                                            class="block invisible bg-pr-400 w-10 h-1 rounded-md text-center -bottom-1 mx-auto relative group-hover:visible">
-                                        </div>
+                                    <a href="{{ route('users') }}">
+                                        <div class="group text-center">
+                                            <div class="group-hover:cursor-pointer">Users</div>
+                                            <div
+                                                class="block invisible bg-pr-400 w-10 h-1 rounded-md text-center -bottom-1 mx-auto relative group-hover:visible">
+                                            </div>
+                                    </a>
                                 </li>
 
                             </ul>

@@ -13,13 +13,13 @@ class CarSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('cars')->insert([
+        $cars = [
             [
                 'brand' => 'Toyota',
                 'model' => 'Camry',
                 'engine' => '2.5L',
                 'price_per_day' => 50,
-                'image' => 'Toyota_Camry.jpg',
+                'image' => '/images/cars/Toyota_Camry.jpg',
                 'quantity' => 1,
                 'status' => 'Available',
                 'reduce' => 30,
@@ -30,7 +30,7 @@ class CarSeeder extends Seeder
                 'model' => 'Civic',
                 'engine' => '1.8L',
                 'price_per_day' => 45,
-                'image' => 'Honda_Civic.jpg',
+                'image' => '/images/cars/Honda_Civic.jpg',
                 'quantity' => 1,
                 'status' => 'Available',
                 'reduce' => 10,
@@ -41,7 +41,7 @@ class CarSeeder extends Seeder
                 'model' => 'Mustang',
                 'engine' => '5.0L V8',
                 'price_per_day' => 70,
-                'image' => 'Ford_Mustang.jpg',
+                'image' => '/images/cars/Ford_Mustang.jpg',
                 'quantity' => 1,
                 'status' => 'Available',
                 'reduce' => 0,
@@ -52,7 +52,7 @@ class CarSeeder extends Seeder
                 'model' => 'X5',
                 'engine' => '3.0L',
                 'price_per_day' => 80,
-                'image' => 'BMW_X5.jpg',
+                'image' => '/images/cars/BMW_X5.jpg',
                 'quantity' => 1,
                 'status' => 'Available',
 
@@ -64,7 +64,7 @@ class CarSeeder extends Seeder
                 'model' => 'E-Class',
                 'engine' => '2.0L',
                 'price_per_day' => 65,
-                'image' => 'Mercedes-Benz_E-Class.jpg',
+                'image' => '/images/cars/Mercedes-Benz_E-Class.jpg',
                 'quantity' => 1,
                 'status' => 'Available',
 
@@ -76,7 +76,7 @@ class CarSeeder extends Seeder
                 'model' => 'Malibu',
                 'engine' => '1.5L',
                 'price_per_day' => 55,
-                'image' => 'Chevrolet_Malibu.jpg',
+                'image' => '/images/cars/Chevrolet_Malibu.jpg',
                 'quantity' => 1,
                 'status' => 'Available',
 
@@ -88,7 +88,7 @@ class CarSeeder extends Seeder
                 'model' => 'A4',
                 'engine' => '2.0L',
                 'price_per_day' => 70, 5,
-                'image' => 'Audi_A4.jpg',
+                'image' => '/images/cars/Audi_A4.jpg',
                 'quantity' => 1,
                 'status' => 'Available',
 
@@ -100,7 +100,7 @@ class CarSeeder extends Seeder
                 'model' => 'Altima',
                 'engine' => '2.5L',
                 'price_per_day' => 50,
-                'image' => 'Nissan_Altima.jpg',
+                'image' => '/images/cars/Nissan_Altima.jpg',
                 'quantity' => 1,
                 'status' => 'Available',
 
@@ -112,7 +112,7 @@ class CarSeeder extends Seeder
                 'model' => 'Sonata',
                 'engine' => '2.5L',
                 'price_per_day' => 45,
-                'image' => 'Hyundai_Sonata.jpg',
+                'image' => '/images/cars/Hyundai_Sonata.jpg',
                 'quantity' => 1,
                 'status' => 'Available',
 
@@ -124,7 +124,7 @@ class CarSeeder extends Seeder
                 'model' => 'Optima',
                 'engine' => '2.0L',
                 'price_per_day' => 45,
-                'image' => 'Kia_Optima.jpg',
+                'image' => '/images/cars/Kia_Optima.jpg',
                 'quantity' => 1,
                 'status' => 'Available',
 
@@ -136,7 +136,7 @@ class CarSeeder extends Seeder
                 'model' => 'Golf',
                 'engine' => '1.4L',
                 'price_per_day' => 60,
-                'image' => 'Volkswagen_Golf.jpg',
+                'image' => '/images/cars/Volkswagen_Golf.jpg',
                 'quantity' => 1,
                 'status' => 'Available',
 
@@ -148,7 +148,7 @@ class CarSeeder extends Seeder
                 'model' => 'Impreza',
                 'engine' => '2.0L',
                 'price_per_day' => 60,
-                'image' => 'Subaru_Impreza.jpg',
+                'image' => '/images/cars/Subaru_Impreza.jpg',
                 'quantity' => 1,
                 'status' => 'Available',
 
@@ -160,7 +160,7 @@ class CarSeeder extends Seeder
                 'model' => 'Focus',
                 'engine' => '1.6L',
                 'price_per_day' => 50,
-                'image' => 'Ford_Focus.jpg',
+                'image' => '/images/cars/Ford_Focus.jpg',
                 'quantity' => 1,
                 'status' => 'Available',
 
@@ -172,7 +172,7 @@ class CarSeeder extends Seeder
                 'model' => 'Model 3',
                 'engine' => 'Electric',
                 'price_per_day' => 90,
-                'image' => 'Tesla_Model_3.jpg',
+                'image' => '/images/cars/Tesla_Model_3.jpg',
                 'quantity' => 1,
                 'status' => 'Available',
 
@@ -184,7 +184,7 @@ class CarSeeder extends Seeder
                 'model' => 'Camaro',
                 'engine' => '6.2L V8',
                 'price_per_day' => 100,
-                'image' => 'Chevrolet_Camaro.jpg',
+                'image' => '/images/cars/Chevrolet_Camaro.jpg',
                 'quantity' => 1,
                 'status' => 'Available',
 
@@ -196,7 +196,7 @@ class CarSeeder extends Seeder
                 'model' => ' F-Type',
                 'engine' => '3.0L V6',
                 'price_per_day' => 120,
-                'image' => 'Jaguar_F-Type.jpg',
+                'image' => '/images/cars/Jaguar_F-Type.jpg',
                 'quantity' => 1,
                 'status' => 'Available',
 
@@ -208,7 +208,7 @@ class CarSeeder extends Seeder
                 'model' => 'RX 350',
                 'engine' => '3.5L V6',
                 'price_per_day' => 80,
-                'image' => 'Lexus_RX_350.jpg',
+                'image' => '/images/cars/Lexus_RX_350.jpg',
                 'quantity' => 1,
                 'status' => 'Available',
 
@@ -220,7 +220,7 @@ class CarSeeder extends Seeder
                 'model' => 'XC60',
                 'engine' => '2.0L',
                 'price_per_day' => 70,
-                'image' => 'Volvo_XC60.jpg',
+                'image' => '/images/cars/Volvo_XC60.jpg',
                 'quantity' => 1,
                 'status' => 'Available',
 
@@ -232,7 +232,7 @@ class CarSeeder extends Seeder
                 'model' => '911 Carrera',
                 'engine' => '3.0L Flat-6',
                 'price_per_day' => 150.00,
-                'image' => 'Porsche_911_Carrera.jpg',
+                'image' => '/images/cars/Porsche_911_Carrera.jpg',
                 'quantity' => 1,
                 'status' => 'Available',
 
@@ -244,7 +244,7 @@ class CarSeeder extends Seeder
                 'model' => 'Outlander',
                 'engine' => '2.4L',
                 'price_per_day' => 60.00,
-                'image' => 'Mitsubishi_Outlander.jpg',
+                'image' => '/images/cars/Mitsubishi_Outlander.jpg',
                 'quantity' => 1,
                 'status' => 'Available',
 
@@ -256,7 +256,7 @@ class CarSeeder extends Seeder
                 'model' => 'Range Rover Sport',
                 'engine' => '3.0L V6',
                 'price_per_day' => 120.00,
-                'image' => 'Land_Rover_Range_Rover_Sport.jpg',
+                'image' => '/images/cars/Land_Rover_Range_Rover_Sport.jpg',
                 'quantity' => 1,
                 'status' => 'Available',
 
@@ -268,7 +268,7 @@ class CarSeeder extends Seeder
                 'model' => 'Sierra_1500',
                 'engine' => '5.3L V8',
                 'price_per_day' => 120.00,
-                'image' => 'GMC_Sierra_1500.jpg',
+                'image' => '/images/cars/GMC_Sierra_1500.jpg',
                 'quantity' => 1,
                 'status' => 'Available',
 
@@ -280,7 +280,7 @@ class CarSeeder extends Seeder
                 'model' => '500',
                 'engine' => '1.4L',
                 'price_per_day' => 40.00,
-                'image' => 'Fiat_500.jpg',
+                'image' => '/images/cars/Fiat_500.jpg',
                 'quantity' => 1,
                 'status' => 'Available',
 
@@ -292,10 +292,9 @@ class CarSeeder extends Seeder
                 'model' => 'Cooper',
                 'engine' => '1.5L',
                 'price_per_day' => 55.00,
-                'image' => 'Mini_Cooper.jpg',
+                'image' => '/images/cars/Mini_Cooper.jpg',
                 'quantity' => 1,
                 'status' => 'Available',
-
                 'reduce' => 30,
                 'stars' => 5,
             ],
@@ -304,7 +303,7 @@ class CarSeeder extends Seeder
                 'model' => 'Q5',
                 'engine' => '2.0L',
                 'price_per_day' => 80.00,
-                'image' => 'Audi_Q5.jpg',
+                'image' => '/images/cars/Audi_Q5.jpg',
                 'quantity' => 1,
                 'status' => 'Available',
 
@@ -315,7 +314,7 @@ class CarSeeder extends Seeder
                 'model' => 'Tahoe',
                 'engine' => '5.3L V8',
                 'price_per_day' => 110.00,
-                'image' => 'Chevrolet_Tahoe.jpg',
+                'image' => '/images/cars/Chevrolet_Tahoe.jpg',
                 'quantity' => 1,
                 'status' => 'Available',
 
@@ -327,7 +326,7 @@ class CarSeeder extends Seeder
                 'model' => 'Explorer',
                 'engine' => '3.5L V6',
                 'price_per_day' => 95.00,
-                'image' => 'Ford_Explorer.jpg',
+                'image' => '/images/cars/Ford_Explorer.jpg',
                 'quantity' => 1,
                 'status' => 'Available',
 
@@ -339,7 +338,7 @@ class CarSeeder extends Seeder
                 'model' => 'Wrangler',
                 'engine' => '3.6L V6',
                 'price_per_day' => 100.00,
-                'image' => 'Jeep_Wrangler.jpg',
+                'image' => '/images/cars/Jeep_Wrangler.jpg',
                 'quantity' => 1,
                 'status' => 'Available',
 
@@ -351,7 +350,7 @@ class CarSeeder extends Seeder
                 'model' => 'CX-5',
                 'engine' => ' 2.5L',
                 'price_per_day' => 65.00,
-                'image' => 'Mazda_CX-5.jpg',
+                'image' => '/images/cars/Mazda_CX-5.jpg',
                 'quantity' => 1,
                 'status' => 'Available',
 
@@ -363,15 +362,27 @@ class CarSeeder extends Seeder
                 'model' => 'Tucson',
                 'engine' => ' 2.0L',
                 'price_per_day' => 50.00,
-                'image' => 'Hyundai_Tucson.jpg',
+                'image' => '/images/cars/Hyundai_Tucson.jpg',
                 'quantity' => 1,
                 'status' => 'Available',
 
                 'reduce' => 40,
                 'stars' => 5,
             ],
+        ];
 
-            // Add more car data entries here
-        ]);
+        foreach ($cars as $car) {
+            DB::table('cars')->insert([
+                'brand' => $car['brand'],
+                'model' => $car['model'],
+                'engine' => $car['engine'],
+                'price_per_day' => $car['price_per_day'],
+                'image' => $car['image'],
+                'quantity' => $car['quantity'],
+                'status' => $car['status'],
+                'reduce' => $car['reduce'],
+                'stars' => $car['stars'],
+            ]);
+        }
     }
 }
