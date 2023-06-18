@@ -32,6 +32,13 @@ class ReservationController extends Controller
      */
     public function store(Request $request, $car_id)
     {
+        $request->validate([
+            'start_date' => 'required|date|after_or_equal:today',
+            'end_date' => 'required|date|after:start_date',
+            
+        ]);
+
+
         $car = Car::find($car_id);
         $user = User::find($request->user);
 
@@ -54,7 +61,7 @@ class ReservationController extends Controller
         $car->status = 'Reserved';
         $car->save();
 
-        return redirect()->route('thankyou');
+        return view('thankyou',['reservation'=>$reservation] );
     }
 
     /**

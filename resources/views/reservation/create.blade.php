@@ -42,6 +42,9 @@
                                     <input type="text" name="full-name" id="full-name" value="{{ $user->name }}"
                                         class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm sm:leading-6">
                                 </div>
+                                @error('name')
+                                    <span class="text-red-500">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div class="sm:col-span-3">
@@ -51,6 +54,9 @@
                                     <input type="text" name="email" id="email" value="{{ $user->email }}"
                                         class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm sm:leading-6">
                                 </div>
+                                @error('email')
+                                    <span class="text-red-500">{{ $message }}</span>
+                                @enderror
                             </div>
 
                             <div class="sm:col-span-3">
@@ -60,6 +66,9 @@
                                     <input type="date" name="start_date" id="start_date"
                                         class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm sm:leading-6">
                                 </div>
+                                @error('start_date')
+                                    <span class="text-red-500">{{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="sm:col-span-3">
                                 <label for="end_date" class="block text-sm font-medium leading-6 text-gray-900">End at
@@ -68,6 +77,9 @@
                                     <input type="date" name="end_date" id="end_date"
                                         class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm sm:leading-6">
                                 </div>
+                                @error('end_date')
+                                    <span class="text-red-500">{{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
                         <div class="mt-12  ">
@@ -84,7 +96,7 @@
 
             <div class="w-1/3 flex flex-col justify-start items-center">
                 <div class="relative mx-3 mt-3 flex h-[200px] w-3/4   overflow-hidden rounded-xl shadow-lg">
-                    <img class="h-full w-full object-cover" src="{{ $car->image }}" alt="product image" />
+                    <img loading="lazy" class="h-full w-full object-cover" src="{{ $car->image }}" alt="product image" />
                     <span
                         class="absolute w-24 h-8 py-1 top-0 left-0 m-2 rounded-full bg-pr-400 px-2 text-center text-sm font-medium text-white">{{ $car->reduce }}
                         %
@@ -140,11 +152,7 @@
 
     </div>
 
-<div>
-    <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi, consectetur modi placeat, in consequatur, necessitatibus provident deleniti dolorum saepe eum maiores distinctio iusto ullam fugit illo perferendis totam nisi odit.
-    </p>
-</div>
+
 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>

@@ -52,7 +52,7 @@
                             <td class="w-4 p-4">
                                 <div class="p-0.5 rounded-md border-2 border-pr-400 ">
 
-                                    <img src="{{  $car->image }}" alt="car image">
+                                    <img loading="lazy" src="{{  $car->image }}" alt="car image">
                                 </div>
 
                             </td>

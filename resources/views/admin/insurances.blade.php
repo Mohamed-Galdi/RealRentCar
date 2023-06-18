@@ -25,7 +25,7 @@
                                     Total Cars:
                                 </p>
                                 <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                    {{$cars->count()}}
+                                    {{ $cars->count() }}
                                 </p>
                             </div>
                         </div>
@@ -46,7 +46,7 @@
                                     Assured cars
                                 </p>
                                 <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                    {{$cars->where('insu_id', '!=', null)->count()}}
+                                    {{ $cars->where('insu_id', '!=', null)->count() }}
                                 </p>
 
                             </div>
@@ -67,7 +67,7 @@
                                     Non Assured Cars
                                 </p>
                                 <p class="text-lg font-semibold text-gray-700 dark:text-gray-200">
-                                    {{$cars->where('insu_id', null)->count()}}
+                                    {{ $cars->where('insu_id', null)->count() }}
                                 </p>
                             </div>
                         </div>
@@ -130,7 +130,7 @@
                                                 <div class="flex items-center text-sm">
                                                     <!-- Avatar with inset shadow -->
                                                     <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                                                        <img class="object-cover w-full h-full "
+                                                        <img loading="lazy" class="object-cover w-full h-full "
                                                             src="{{ $insu->car->image }}" alt="" loading="lazy" />
                                                         <div class="absolute inset-0 rounded-full shadow-inner"
                                                             aria-hidden="true"></div>
@@ -181,7 +181,7 @@
                                             </td>
                                             <td class="flex my-4 py-3  px-6  space-x-3 ">
 
-                                                <form action="{{route('insurances.destroy', ['insurance'=> $insu->id])}}"
+                                                <form action="{{ route('insurances.destroy', ['insurance' => $insu->id]) }}"
                                                     method="POST">
                                                     @csrf
                                                     @method('DELETE')
@@ -199,7 +199,9 @@
                             </table>
                         </div>
                     </div>
-
+                    <div class="flex justify-center my-12 w-full">
+                        {{ $insurances->links('pagination::tailwind') }}
+                    </div>
 
 
                 </div>

@@ -36,6 +36,19 @@ class CarController extends Controller
         //     'brand'
         // ]);
 
+        $request->validate([
+            'brand' => 'required',
+            'model' => 'required',
+            'engine' => 'required',
+            'quantity' => 'required',
+            'price_per_day' => 'required',
+            'insurance_status' => 'required',
+            'status' => 'required',
+            'reduce' => 'required',
+            'stars' => 'required',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg'
+        ]);
+
         $car = new Car;
         $car->brand = $request->brand;
         $car->model = $request->model;
@@ -80,6 +93,18 @@ class CarController extends Controller
      */
     public function update(Request $request, Car $car)
     {
+        $request->validate([
+            'brand' => 'required',
+            'model' => 'required',
+            'engine' => 'required',
+            'quantity' => 'required',
+            'price_per_day' => 'required',
+            'insurance_status' => 'required',
+            'status' => 'required',
+            'reduce' => 'required',
+            'stars' => 'required',
+        ]);
+
         $car = Car::findOrFail($car->id);
 
         $car->brand = $request->brand;

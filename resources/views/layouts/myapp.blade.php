@@ -28,7 +28,7 @@
                 <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl drop-shadow-2xl">
                     {{-- LOGO --}}
                     <a href="{{ route('home') }}" class="flex items-center">
-                        <img src="/images/logos/LOGOtext.png" class="mr-3 h-6 sm:h-12" alt="Flowbite Logo" />
+                        <img loading="lazy" src="/images/logos/LOGOtext.png" class="mr-3 h-6 sm:h-12" alt="Flowbite Logo" />
                     </a>
 
                     {{-- login & Register buttons --}}
@@ -121,7 +121,7 @@
                 <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                     {{-- LOGO --}}
                     <a href="{{ route('home') }}" class="flex items-center">
-                        <img src="/images/logos/LOGOtext.png" class="mr-3 h-6 sm:h-12" alt="Flowbite Logo" />
+                        <img loading="lazy" src="/images/logos/LOGOtext.png" class="mr-3 h-6 sm:h-12" alt="Flowbite Logo" />
                     </a>
 
                     {{-- Dropdown button --}}
@@ -175,7 +175,7 @@
                         <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
                             class="text-black bg-pr-400 hover:bg-pr-600 font-medium rounded-lg text-sm px-3 py-2.5 text-center inline-flex items-center "
                             type="button">
-                            <img src="/images/user.png" width="24" alt="user icon" class="mr-3">
+                            <img loading="lazy" src="/images/user.png" width="24" alt="user icon" class="mr-3">
                             <p> Admin ( {{ Auth::user()->name }} ) </p>
                             <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -259,7 +259,7 @@
                         <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
                             class="text-black bg-pr-400 hover:bg-pr-600 font-medium rounded-lg text-sm px-3 py-2.5 text-center inline-flex items-center "
                             type="button">
-                            <img src="/images/user.png" width="24" alt="user icon" class="mr-3">
+                            <img loading="lazy" src="/images/user.png" width="24" alt="user icon" class="mr-3">
                             {{ Auth::user()->name }}
                             <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -277,7 +277,7 @@
                                 <li>
                                     <a href="{{route('clientReservation')}}" class="block px-4 py-2 hover:bg-pr-200 ">Reservations</a>
                                 </li>
-                            
+
                                 <li>
                                     <a class="block px-4 py-2 hover:bg-pr-200 " href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
@@ -328,7 +328,7 @@
             <div class="md:flex md:justify-between">
                 <div class="mb-6 md:mb-0">
                     <a href="" class="flex items-center">
-                        <img src="/images/logos/LogoTextDark.png" class="mr-3 h-24" alt="Logo" />
+                        <img loading="lazy" src="/images/logos/LogoTextDark.png" class="mr-3 h-24" alt="Logo" />
                     </a>
                 </div>
 

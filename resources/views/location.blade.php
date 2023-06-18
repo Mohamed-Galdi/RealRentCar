@@ -3,10 +3,10 @@
     <div class="mx-auto max-w-screen-xl ">
         <div class="flex justify-around  items-center px-6 pt-6">
             <div class="m-12 p-6 w-1/2">
-                <img src="/images/shop1.png" alt="shop image">
+                <img loading="lazy" src="/images/shop1.png" alt="shop image">
             </div>
             <div class=" relative m-12 w-1/2 p-6">
-                
+
                 <p>Welcome to our car rental shop conveniently located in the heart of the city. Situated in a prime
                     location, our shop provides easy access and a central hub for all your car rental needs. Whether you are
                     a local resident or a traveler exploring the area, finding us is a breeze.</p>
@@ -30,7 +30,7 @@
                     to minimize any inconvenience or delays, allowing you to focus on your journey ahead.</p>
             </div>
             <div class="m-12 p-6 w-1/2">
-                <img src="/images/shop_2.jpg" alt="shop image">
+                <img loading="lazy" src="/images/shop_2.jpg" alt="shop image">
             </div>
 
         </div>

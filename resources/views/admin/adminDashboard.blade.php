@@ -140,7 +140,7 @@
                                             <td class="px-4 py-3">
                                                 <div class="flex items-center text-sm">
                                                     <div class="relative hidden w-8 h-8 mr-3 rounded-full md:block">
-                                                        <img class="object-cover w-full h-full rounded-full"
+                                                        <img loading="lazy" class="object-cover w-full h-full rounded-full"
                                                             src="{{ $reservation->user->avatar }}" alt=""
                                                             loading="lazy" />
                                                         <div class="absolute inset-0 rounded-full shadow-inner"
@@ -222,11 +222,13 @@
 
                                             <td class="px-4 py-3 w-36 text-sm flex flex-col justify-center">
 
-                                                <a class="p-2 mb-1 text-white bg-pr-500 hover:bg-pr-400 font-medium rounded text-center" href="{{ route('editStatus', ['reservation'=> $reservation->id]) }}">
+                                                <a class="p-2 mb-1 text-white bg-pr-500 hover:bg-pr-400 font-medium rounded text-center"
+                                                    href="{{ route('editStatus', ['reservation' => $reservation->id]) }}">
                                                     <button>Edit Status </button>
                                                 </a>
 
-                                                <a class="p-2 mb-1 text-white bg-indigo-500 hover:bg-indigo-600 font-medium rounded text-center" href="{{ route('editPayment', ['reservation'=> $reservation->id]) }}">
+                                                <a class="p-2 mb-1 text-white bg-indigo-500 hover:bg-indigo-600 font-medium rounded text-center"
+                                                    href="{{ route('editPayment', ['reservation' => $reservation->id]) }}">
                                                     <button>Edit payment </button>
                                                 </a>
 
@@ -239,6 +241,9 @@
 
                                 </tbody>
                             </table>
+                        </div>
+                        <div class="flex justify-center my-12 w-full">
+                            {{ $reservations->links('pagination::tailwind') }}
                         </div>
                     </div>
 

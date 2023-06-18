@@ -4,7 +4,7 @@
         <div class=" bg-white rounded-md p-6 flex my-12">
             <div class="w-1/4 border-r border-gray-900 flex flex-col gap-8">
                 <div class="flex justify-center">
-                    <img class="w-[150px]" src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}">
+                    <img loading="lazy" class="w-[150px]" src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}">
                 </div>
                 <div class="">
                     <h2 class="text-lg font-medium text-gray-900"><span
@@ -13,9 +13,23 @@
                     <h2 class="text-lg font-medium text-gray-900"><span
                             class="text-lg font-car font-normal text-gray-500">Eamil:
                         </span>{{ Auth::user()->email }}</h2>
-                    <h2 class="text-lg font-medium text-pr-400"><span
+
+                    <h2 class="text-lg font-medium text-green-600"><span
                             class="text-lg font-car font-normal text-gray-500">Active
-                            Reservation: </span>{{ Auth::user()->reservations->count() }}</h2>
+                            Reservations: </span>{{ Auth::user()->reservations->where('status', 'Active')->count() }}</h2>
+                    <h2 class="text-lg font-medium text-yellow-300"><span
+                            class="text-lg font-car font-normal text-gray-500">Pending
+                            Reservations: </span>{{ Auth::user()->reservations->where('status', 'Pending')->count() }}</h2>
+                    <h2 class="text-lg font-medium text-Black"><span
+                            class="text-lg font-car font-normal text-gray-500">Ended
+                            Reservations: </span>{{ Auth::user()->reservations->where('status', 'Ended')->count() }}</h2>
+                    <h2 class="text-lg font-medium text-red-600"><span
+                            class="text-lg font-car font-normal text-gray-500">Canceled
+                            Reservations: </span>{{ Auth::user()->reservations->where('status', 'Canceled')->count() }}</h2>
+                    <h2 class="text-lg font-medium text-pr-400"><span
+                            class="text-lg font-car font-normal text-gray-500">Total
+                            Reservations: </span>{{ Auth::user()->reservations->count() }}</h2>
+
                 </div>
             </div>
 
@@ -23,8 +37,8 @@
                 @foreach ($reservations as $reservation)
                     <div class="flex justify-start  m-6 rounded-lg bg-gray-200">
                         <div class="w-[350px] h-[250px]  overflow-hidden p-1  m-3 rounded-md">
-                            <img class="w-full h-full object-cover overflow-hidden rounded-md" src="{{ $reservation->car->image }}"
-                                alt="">
+                            <img loading="lazy" class="w-full h-full object-cover overflow-hidden rounded-md"
+                                src="{{ $reservation->car->image }}" alt="">
                         </div>
                         <div class="m-3 p-1 w-[500px]">
                             <h2 class="mt-2 font-car text-gray-800 text-2xl font-medium">{{ $reservation->car->brand }}
@@ -88,7 +102,10 @@
                             </div>
 
                             <div class="mt-8 text-center w-full px-2">
-                                <button class="bg-pr-400 p-3 text-white font-bold hover:bg-black w-full rounded-md "> Get Reservation Invoice</button>
+                                <a href="{{ route('invoice', ['reservation' => $reservation->id]) }}">
+                                    <button class="bg-pr-400 p-3 text-white font-bold hover:bg-black w-full rounded-md ">
+                                        Get Reservation Invoice</button>
+                                </a>
                             </div>
 
                         </div>

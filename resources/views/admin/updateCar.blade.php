@@ -18,6 +18,9 @@
                                 <input type="text" name="brand" id="brand" value="{{ $car->brand }}"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm sm:leading-6">
                             </div>
+                            @error('brand')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="sm:col-span-3">
@@ -26,6 +29,9 @@
                                 <input type="text" name="model" id="model" value="{{ $car->model }}"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm sm:leading-6">
                             </div>
+                            @error('model')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="sm:col-span-2 sm:col-start-1">
@@ -34,6 +40,9 @@
                                 <input type="text" name="engine" id="engine" value="{{ $car->engine }}"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm sm:leading-6">
                             </div>
+                            @error('engine')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="sm:col-span-2">
@@ -42,6 +51,9 @@
                                 <input type="text" name="quantity" id="quantity" value="{{ $car->quantity }}"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm sm:leading-6">
                             </div>
+                            @error('quantity')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="sm:col-span-2">
@@ -52,6 +64,9 @@
                                     value="{{ $car->price_per_day }}"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm sm:leading-6">
                             </div>
+                            @error('price_per_day')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="sm:col-span-3">
@@ -65,6 +80,9 @@
                                     placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm
                                     sm:leading-6">
                             </div>
+                            @error('reduce')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="sm:col-span-3">
@@ -83,6 +101,9 @@
                                     <option value="5" {{ $car->stars == '5' ? 'selected' : '' }}>5/5</option>
                                 </select>
                             </div>
+                            @error('stars')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
 
 
@@ -112,6 +133,9 @@
                                     <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
                                 </div>
                             </div>
+                            @error('image')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="sm:col-span-3">
@@ -128,6 +152,9 @@
                                         Expired</option>
                                 </select>
                             </div>
+                            @error('insurance_status')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="sm:col-span-3">
@@ -142,6 +169,9 @@
                                     </option>
                                 </select>
                             </div>
+                            @error('status')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
 
 

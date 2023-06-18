@@ -20,7 +20,7 @@
             @foreach ($admins as $admin)
                 <div class="bg-white shadow-xl rounded-md flex  justify-start items-center ">
                     <div class="w-1/6 m-3 ">
-                        <img src="{{ $admin->avatar }}" alt="admin avatar" class="">
+                        <img loading="lazy" src="{{ $admin->avatar }}" alt="admin avatar" class="">
                     </div>
                     <div class="my-3 ">
                         <h2 class="font-car text-gray-900 font-semibold text-xl">{{ $admin->name }}</h2>
@@ -44,7 +44,7 @@
 
         </div>
 
-        <div class="w-full overflow-hidden rounded-lg shadow-xs">
+        <div class="w-full overflow-hidden rounded-lg shadow-xs mb-12">
             <div class="w-full overflow-x-auto">
                 <table class="w-full whitespace-no-wrap overflow-scroll table-auto text-center">
                     <thead>
@@ -66,7 +66,7 @@
                             <tr class="text-gray-700 dark:text-gray-400">
 
                                 <td class="px-4 py-3 text-sm w-1/12">
-                                    <img src="{{ $client->avatar }}" alt="">
+                                    <img loading="lazy" src="{{ $client->avatar }}" alt="">
                                 </td>
                                 <td class="px-4 py-3 text-sm">
                                     <p>
@@ -116,6 +116,9 @@
                     </tbody>
                 </table>
             </div>
+            <div class="flex justify-center my-12 w-full">
+        {{ $clients->links('pagination::tailwind') }}
+    </div>
         </div>
 
 

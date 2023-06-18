@@ -45,7 +45,11 @@
                     <a class="m-2 text-gray-600 hover:text-blue-600 hover:cursor-pointer" href="{{ route('password.request') }}">
                         {{ __('Forgot Your Password?') }}
                     </a>
+
                 @endif
+                <div class="mt-4 ">
+                        Don't have account yet? <a class=" font-medium hover:text-pr-400" href="{{route('register')}}">register here</a>
+                </div>
             </form>
         </div>
 

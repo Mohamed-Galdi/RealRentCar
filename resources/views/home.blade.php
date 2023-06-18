@@ -26,7 +26,7 @@
                     </div>
                 </div>
                 <div class="w-3/5">
-                    <img src="/images/home car.png" alt="home car">
+                    <img loading="lazy" src="/images/home car.png" alt="home car">
                 </div>
 
             </div>
@@ -55,7 +55,7 @@
                     <div
                         class="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
                         <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="#">
-                            <img class="object-cover" src="{{ $car->image }}" alt="product image" />
+                            <img loading="lazy" class="object-cover" src="{{ $car->image }}" alt="product image" />
                             <span
                                 class="absolute top-0 left-0 m-2 rounded-full bg-pr-400 px-2 text-center text-sm font-medium text-white">{{ $car->reduce }}
                                 %
@@ -274,7 +274,7 @@
 
             {{-- Orange car section --}}
             <div class=" relative -bottom-[1px] mx-auto max-w-screen-xl  ">
-                <img src="/images/orange car 1.png" alt="" class="w-full">
+                <img loading="lazy" src="/images/orange car 1.png" alt="" class="w-full">
             </div>
 
         </div>

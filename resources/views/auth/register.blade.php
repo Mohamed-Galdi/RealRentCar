@@ -34,37 +34,37 @@
                         <div class="m-3">
                             <input type="radio" name="avatar_option" value="/images/avatars/avatar_1.jpg" id="avatar_1" class="hidden" >
                             <label class="" for="avatar_1">
-                                <img class=" avatar w-12 " src="/images/avatars/avatar_1.jpg" alt="">
+                                <img loading="lazy" class=" avatar w-12 " src="/images/avatars/avatar_1.jpg" alt="">
                             </label>
                         </div>
                         <div class="m-3">
                             <input type="radio" name="avatar_option" value="/images/avatars/avatar_2.jpg" id="avatar_2" class="hidden">
                             <label class="" for="avatar_2">
-                                <img class=" avatar w-12" src="/images/avatars/avatar_2.jpg" alt="">
+                                <img loading="lazy" class=" avatar w-12" src="/images/avatars/avatar_2.jpg" alt="">
                             </label>
                         </div>
                         <div class="m-3">
                             <input type="radio" name="avatar_option" value="/images/avatars/avatar_3.jpg" id="avatar_3" class="hidden">
                             <label class="" for="avatar_3">
-                                <img class=" avatar w-12" src="/images/avatars/avatar_3.jpg" alt="">
+                                <img loading="lazy" class=" avatar w-12" src="/images/avatars/avatar_3.jpg" alt="">
                             </label>
                         </div>
                         <div class="m-3">
                             <input type="radio" name="avatar_option" value="/images/avatars/avatar_4.jpg" id="avatar_4" class="hidden">
                             <label class="" for="avatar_4">
-                                <img class=" avatar w-12" src="/images/avatars/avatar_4.jpg" alt="">
+                                <img loading="lazy" class=" avatar w-12" src="/images/avatars/avatar_4.jpg" alt="">
                             </label>
                         </div>
                         <div class="m-3">
                             <input type="radio" name="avatar_option" value="/images/avatars/avatar_5.jpg" id="avatar_5" class="hidden">
                             <label class="" for="avatar_5">
-                                <img class=" avatar w-12" src="/images/avatars/avatar_5.jpg" alt="">
+                                <img loading="lazy" class=" avatar w-12" src="/images/avatars/avatar_5.jpg" alt="">
                             </label>
                         </div>
                         <div class="m-3">
                             <input type="radio" name="avatar_option" value="/images/avatars/avatar_6.jpg"  id="avatar_6" class="hidden">
                             <label class="" for="avatar_6">
-                                <img class=" avatar w-12" src="/images/avatars/avatar_6.jpg" alt="">
+                                <img loading="lazy" class=" avatar w-12" src="/images/avatars/avatar_6.jpg" alt="">
                             </label>
                         </div>
                     </div>

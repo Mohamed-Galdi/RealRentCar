@@ -13,7 +13,7 @@ class InsuranceController extends Controller
      */
     public function index()
     {
-        $insurances = Insurance::all();
+        $insurances = Insurance::paginate(5);
         $cars = Car::all();
         return view('admin.insurances', compact('insurances', 'cars'));
     }
@@ -33,6 +33,16 @@ class InsuranceController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'company' => 'required',
+            'price' => 'required',
+            'car' => 'required',
+            'start_date' => 'required',
+            'end_date' => 'required',
+            'type' => 'required',
+            'status' => 'required',
+        ]);
+
         $insurance = new Insurance;
         $car = Car::find($request->car);
 

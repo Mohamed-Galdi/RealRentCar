@@ -15,7 +15,11 @@
                                 <input type="text" name="brand" id="brand"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm sm:leading-6">
                             </div>
+                            @error('brand')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
+
 
                         <div class="sm:col-span-3">
                             <label for="model" class="block text-sm font-medium leading-6 text-gray-900">Model</label>
@@ -23,6 +27,9 @@
                                 <input type="text" name="model" id="model"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm sm:leading-6">
                             </div>
+                            @error('model')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="sm:col-span-2 sm:col-start-1">
@@ -31,6 +38,9 @@
                                 <input type="text" name="engine" id="engine"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm sm:leading-6">
                             </div>
+                            @error('engine')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="sm:col-span-2">
@@ -39,6 +49,9 @@
                                 <input type="text" name="quantity" id="quantity"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm sm:leading-6">
                             </div>
+                            @error('quantity')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="sm:col-span-2">
@@ -48,32 +61,42 @@
                                 <input type="text" name="price_per_day" id="price_per_day"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm sm:leading-6">
                             </div>
+                            @error('price_per_day')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="sm:col-span-3">
-                            <label for="insurance_status"
-                                class="block text-sm font-medium leading-6 text-gray-900">Reduce % </label>
+                            <label for="insurance_status" class="block text-sm font-medium leading-6 text-gray-900">Reduce %
+                            </label>
                             <div class="mt-2">
                                 <input type="number" name="reduce" id="reduce"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm sm:leading-6">
                             </div>
+                            @error('reduce')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="sm:col-span-3">
-                            <label for="stars" class="block text-sm font-medium leading-6 text-gray-900">Car stars</label>
+                            <label for="stars" class="block text-sm font-medium leading-6 text-gray-900">Car
+                                stars</label>
                             <div class="mt-2">
                                 <select id="stars" name="stars"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:max-w-xs sm:text-sm sm:leading-6">
-                                    <option disabled selected value="1" >
+                                    <option disabled selected value="1">
                                         ⭐⭐⭐⭐⭐
                                     </option>
-                                    <option value="1" >1/5</option>
-                                    <option value="2" >2/5</option>
-                                    <option value="2" >3/5</option>
-                                    <option value="4" >4/5</option>
-                                    <option value="5" >5/5</option>
+                                    <option value="1">1/5</option>
+                                    <option value="2">2/5</option>
+                                    <option value="2">3/5</option>
+                                    <option value="4">4/5</option>
+                                    <option value="5">5/5</option>
                                 </select>
                             </div>
+                            @error('stars')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
 
 
@@ -102,6 +125,9 @@
                                     <p class="text-xs leading-5 text-gray-600">PNG, JPG, GIF up to 10MB</p>
                                 </div>
                             </div>
+                            @error('image')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="sm:col-span-3">
@@ -110,11 +136,14 @@
                             <div class="mt-2">
                                 <select id="insurance_status" name="insurance_status"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:max-w-xs sm:text-sm sm:leading-6">
-                                    <option value="active" >Active</option>
-                                    <option value="pending" >Pending</option>
-                                    <option value="expired" >Expired</option>
+                                    <option value="active">Active</option>
+                                    <option value="pending">Pending</option>
+                                    <option value="expired">Expired</option>
                                 </select>
                             </div>
+                            @error('insurance_status')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="sm:col-span-3">
@@ -122,10 +151,13 @@
                             <div class="mt-2">
                                 <select id="status" name="status"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:max-w-xs sm:text-sm sm:leading-6">
-                                    <option value="available" >Available</option>
-                                    <option value="unavailable" >Unavailable</option>
+                                    <option value="available">Available</option>
+                                    <option value="unavailable">Unavailable</option>
                                 </select>
                             </div>
+                            @error('status')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
 
 

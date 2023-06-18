@@ -20,10 +20,14 @@
                                         {{ $car->brand . ' ' . $car->model . ' ' . $car->engine }}
                                     </option>
                                 @empty
-                                <option disabled class="text-red-400 font-medium">all registred cars are assured !!!</option>
+                                    <option disabled class="text-red-400 font-medium">all registred cars are assured !!!
+                                    </option>
                                 @endforelse
 
                             </select>
+                            @error('car')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="sm:col-span-2 sm:col-start-1">
@@ -32,6 +36,9 @@
                                 <input type="text" name="company" id="company"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm sm:leading-6">
                             </div>
+                            @error('company')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="sm:col-span-2">
@@ -44,6 +51,9 @@
                                     <option value="Collision insurance">Collision insurance</option>
                                 </select>
                             </div>
+                            @error('type')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="sm:col-span-2">
@@ -53,6 +63,9 @@
                                 <input type="text" name="price" id="price"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm sm:leading-6">
                             </div>
+                            @error('price')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
 
                         <div class="sm:col-span-3">
@@ -62,6 +75,9 @@
                                 <input type="date" name="start_date" id="start_date"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm sm:leading-6">
                             </div>
+                            @error('start_date')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
                         <div class="sm:col-span-3">
                             <label for="end_date" class="block text-sm font-medium leading-6 text-gray-900">End at
@@ -70,6 +86,9 @@
                                 <input type="date" name="end_date" id="end_date"
                                     class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm sm:leading-6">
                             </div>
+                            @error('end_date')
+                                <span class="text-red-500">{{ $message }}</span>
+                            @enderror
                         </div>
 
 
