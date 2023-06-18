@@ -8,8 +8,9 @@
                 <hr class=" mt-8 h-0.5 w-1/2 bg-pr-500">
                 <p class="my-2 mx-8  p-2 font-car font-bold text-gray-600 text-lg ">Admins</p>
                 <hr class=" mt-8 h-0.5 w-1/2 bg-pr-500">
-                <button class="w-40  border-2 border-pr-500 hover:text-white hover:bg-pr-400 font-car font-medium p-1 ">add
-                    new admin</button>
+                <a href="{{ route('addAdmin') }}" class="flex  w-40  border-2 border-pr-500 hover:text-white hover:bg-pr-400 font-car font-medium p-1 " >
+                    <button>add new admin</button>
+                </a>
                 <hr>
             </div>
 
@@ -69,33 +70,40 @@
                                 </td>
                                 <td class="px-4 py-3 text-sm">
                                     <p>
-                                        {{$client->name}}
+                                        {{ $client->name }}
                                     </p>
                                 </td>
                                 <td class="px-4 py-3 text-sm">
                                     <p>
-                                        {{$client->email}}
+                                        {{ $client->email }}
                                     </p>
                                 </td>
                                 <td class="px-4 py-3 text-sm w-32">
                                     <p>
-                                        {{ Carbon\Carbon::parse($client->created_at)->format('Y-m-d')}}
+                                        {{ Carbon\Carbon::parse($client->created_at)->format('Y-m-d') }}
                                     </p>
                                 </td>
                                 <td class="px-4 py-3 text-sm text-center">
-                                    @if ($client->reservations->count() > 0 )
-                                    <p>
-                                        have <span class=" font-bold text-">{{ $client->reservations->count() }} </span> active reservation
-                                    </p>
+                                    @if ($client->reservations->count() > 0)
+                                        <p>
+                                            <span class=" font-bold text-">{{ $client->reservations->count() }} </span>
+                                            active reservation
+                                        </p>
                                     @else
-                                    no active reservations!!!
+                                        no active reservations!!!
                                     @endif
                                 </td>
 
                                 <td class="px-4 py-3 text-sm w-32">
-                                    <button>
-                                        remove User
-                                    </button>
+                                    <form action="{{ route('deleteUser', ['user' => $client->id]) }}" method="POST">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button type="submit"
+                                            class="bg-red-500 text-white p-3 rounded-md hover:bg-red-700">
+                                            remove user
+                                        </button>
+                                    </form>
+
                                 </td>
 
 

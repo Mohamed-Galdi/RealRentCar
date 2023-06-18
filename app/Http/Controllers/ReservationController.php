@@ -15,17 +15,16 @@ class ReservationController extends Controller
      */
     public function index()
     {
-
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create( $car_id)
+    public function create($car_id)
     {
         $user = auth()->user();
         $car = Car::find($car_id);
-        return view('reservation.create' , compact('car' , 'user'));
+        return view('reservation.create', compact('car', 'user'));
     }
 
     /**
@@ -56,8 +55,6 @@ class ReservationController extends Controller
         $car->save();
 
         return redirect()->route('thankyou');
-
-
     }
 
     /**
@@ -74,6 +71,36 @@ class ReservationController extends Controller
     public function edit(Reservation $reservation)
     {
         //
+    }
+
+    // Edit and Update Payment status
+    public function editPayment(Reservation $reservation)
+    {
+        $reservation = Reservation::find($reservation->id);
+        return view('admin.updatePayment', compact('reservation'));
+    }
+
+    public function updatePayment(Reservation $reservation, Request $request)
+    {
+        $reservation = Reservation::find($reservation->id);
+        $reservation->payment_status = $request->payment_status;
+        $reservation->save();
+        return redirect()->route('adminDashboard');
+    }
+
+    // Edit and Update Reservation Status
+    public function editStatus(Reservation $reservation)
+    {
+        $reservation = Reservation::find($reservation->id);
+        return view('admin.updateStatus', compact('reservation'));
+    }
+
+    public function updateStatus(Reservation $reservation, Request $request)
+    {
+        $reservation = Reservation::find($reservation->id);
+        $reservation->status = $request->status;
+        $reservation->save();
+        return redirect()->route('adminDashboard');
     }
 
     /**

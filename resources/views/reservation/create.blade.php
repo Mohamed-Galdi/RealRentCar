@@ -83,8 +83,8 @@
             {{-- -------------------------------------------- right -------------------------------------------- --}}
 
             <div class="w-1/3 flex flex-col justify-start items-center">
-                <div class="relative mx-3 mt-3 flex h-[200px] w-fit   overflow-hidden rounded-xl shadow-lg">
-                    <img class=" " src="{{ $car->image }}" alt="product image" />
+                <div class="relative mx-3 mt-3 flex h-[200px] w-3/4   overflow-hidden rounded-xl shadow-lg">
+                    <img class="h-full w-full object-cover" src="{{ $car->image }}" alt="product image" />
                     <span
                         class="absolute w-24 h-8 py-1 top-0 left-0 m-2 rounded-full bg-pr-400 px-2 text-center text-sm font-medium text-white">{{ $car->reduce }}
                         %
