@@ -40,7 +40,6 @@ class InsuranceController extends Controller
             'start_date' => 'required',
             'end_date' => 'required',
             'type' => 'required',
-            'status' => 'required',
         ]);
 
         $insurance = new Insurance;
@@ -64,11 +63,7 @@ class InsuranceController extends Controller
         $car->insu_id = $insurance->id;
         $car->save();
 
-
-
-
         return redirect()->route('insurances.index');
-
 
     }
 

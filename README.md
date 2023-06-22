@@ -9,6 +9,13 @@ This is a car rental project developed for the graduation Project. It is built u
 -   Rental Booking and Management
 -   Admin Panel for managing cars, bookings, and users
 
+
+## User interface:
+<video src="storage/app/user%20interface%20.mp4" controls title="Title"></video>
+
+## Admin interface:
+<video src="storage/app/admin%20interface.mp4" controls title="Title"></video>
+
 ## Installation
 
 1. Clone the repository: https://github.com/Mohamed-Galdi/RealRentCar
