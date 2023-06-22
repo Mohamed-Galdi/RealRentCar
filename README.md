@@ -16,6 +16,9 @@ This is a car rental project developed for the graduation Project. It is built u
 
 ![Alt text](public/user_interface.gif)
 
+
+
+
 ## Installation
 
 1. Clone the repository: https://github.com/Mohamed-Galdi/RealRentCar
