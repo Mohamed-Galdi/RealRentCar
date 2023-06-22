@@ -11,20 +11,13 @@ This is a car rental project developed for the graduation Project. It is built u
 
 
 ## User interface:
-<!-- <video src="storage/app/user_interface.mp4" controls title="Title"></video> -->
+
 
 <video width="560" height="315" controls>
-  <source src="storage/app/user_interface.webm" type="video/mp4">
+  <source src="public/admin_interface.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
-<!-- ![Video](storage/app/user_interface.mp4) -->
-
-
-
-
-<!-- ## Admin interface:
-<video src="storage/app/admin%20interface.mp4" controls title="Title"></video> -->
 
 ## Installation
 
