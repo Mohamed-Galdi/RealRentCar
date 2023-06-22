@@ -14,7 +14,7 @@ This is a car rental project developed for the graduation Project. It is built u
 
 
 <video width="560" height="315" controls>
-  <source src="public/admin_interface.mp4" type="video/mp4">
+  <source src="/admin_interface.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
 
