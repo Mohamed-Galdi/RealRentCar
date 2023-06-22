@@ -10,14 +10,11 @@ This is a car rental project developed for the graduation Project. It is built u
 -   Admin Panel for managing cars, bookings, and users
 
 
-## User interface:
+## Interfaces:
 
+- User
 
-<video width="560" height="315" controls>
-  <source src="public/admin_interface.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
-
+![Alt text](public/user_interface.gif)
 
 ## Installation
 
