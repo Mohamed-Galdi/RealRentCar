@@ -11,10 +11,12 @@ This is a car rental project developed for the graduation Project. It is built u
 
 
 ## User interface:
-<video src="storage/app/user%20interface%20.mp4" controls title="Title"></video>
+<!-- <video src="storage/app/user%20interface%20.mp4" controls title="Title"></video> -->
 
-## Admin interface:
-<video src="storage/app/admin%20interface.mp4" controls title="Title"></video>
+![Video](storage/app/user_interface.mp4)
+
+<!-- ## Admin interface:
+<video src="storage/app/admin%20interface.mp4" controls title="Title"></video> -->
 
 ## Installation
 
