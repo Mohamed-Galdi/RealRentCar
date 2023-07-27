@@ -43,9 +43,11 @@ This is a car rental project developed for the graduation Project. It is built u
 
 9. `npm install` && `npm run dev`
 
-10. Start the development server: `php artisan serve`
+10. Create the symbolic link: `php artisan storage:link`
 
-11. Visit `http://localhost:8000` in your browser to access the application.
+11. Start the development server: `php artisan serve`
+
+12. Visit `http://localhost:8000` in your browser to access the application.
 
 ## Usage
 
