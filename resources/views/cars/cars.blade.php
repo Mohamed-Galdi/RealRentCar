@@ -1,6 +1,29 @@
 @extends('layouts.myapp')
 @section('content')
-    <div class="mt-20 mb-2 grid grid-cols-3  justify-center items-center mx-auto max-w-screen-xl">
+    <div class="bg-gray-200 mx-auto max-w-screen-xl mt-10 p-3 rounded-md shadow-xl">
+        <form action="{{route('carSearch')}}">
+            <div class="flex justify-center gap-28">
+                <div class="flex justify-evenly gap-16">
+                    <input type="text" placeholder="brand" name="brand"
+                    class="block  rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm sm:leading-6"
+                >
+                <input type="text" placeholder="model" name="model"
+                    class="block  rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm sm:leading-6"
+                >
+                <input type="number" placeholder="$ minimum price " name="min_price"
+                    class="block  rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm sm:leading-6"
+                >
+                <input type="number" placeholder="$ maximum price " name="max_price"
+                    class="block  rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm sm:leading-6"
+                >
+                </div>
+
+
+                <button class="bg-pr-400 rounded-md text-white p-2 w-20 font-medium hover:bg-pr-500" type="submit" placeholder="brand"> Search</button>
+            </div>
+        </form>
+    </div>
+    <div class="mt-6 mb-2 grid grid-cols-3  justify-center items-center mx-auto max-w-screen-xl">
         @foreach ($cars as $car)
             <div
                 class="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">

@@ -1,13 +1,13 @@
 @extends('layouts.myapp')
 @section('content')
     <div class="mt-16">
-        <h2 class="mb-4 text-4xl tracking-tight font-extrabold text-center text-gray-900 font-car">Contact
+        <h2 class="mb-4 text-4xl font-extrabold tracking-tight text-center text-gray-900 font-car">Contact
             Us</h2>
-        <p class="mb-8 font-car lg:mb-16 font-light text-center text-gray-500 dark:text-gray-400 sm:text-xl">Got a
+        <p class="mb-8 font-light text-center text-gray-500 font-car lg:mb-16 dark:text-gray-400 sm:text-xl">Got a
             technical issue? Want to send feedback about a beta feature? Need details about our Business plan?
             Let us know.</p>
     </div>
-    <div class=" flex justify-between  px-16  mx-auto max-w-screen-xl">
+    <div class="flex justify-between max-w-screen-xl px-16 mx-auto ">
         <div class="w-1/2 mb-12 ">
             <form action="#" class="space-y-8">
                 <div class="flex justify-between">
@@ -65,13 +65,13 @@
                         placeholder="Leave a comment..."></textarea>
                 </div>
                 <button type="submit"
-                    class="border border-pr-400 p-3 text-pr-400 mb-16 font-bold hover:text-white hover:bg-pr-400  rounded-md">Send
+                    class="p-3 mb-16 font-bold border rounded-md border-pr-400 text-pr-400 hover:text-white hover:bg-pr-400">Send
                     message</button>
             </form>
         </div>
         <div class="grid mx-auto text-center ">
             <div>
-                <div class=" bg-gray-200 rounded-md p-6 w-20 mx-auto mb-3">
+                <div class="w-20 p-6 mx-auto mb-3 bg-gray-200 rounded-md ">
                     <svg id="o" xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 512 512">
                         <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                         <style>
@@ -83,12 +83,12 @@
                             d="M0 32C0 14.3 14.3 0 32 0H480c17.7 0 32 14.3 32 32s-14.3 32-32 32V448c17.7 0 32 14.3 32 32s-14.3 32-32 32H304V464c0-26.5-21.5-48-48-48s-48 21.5-48 48v48H32c-17.7 0-32-14.3-32-32s14.3-32 32-32V64C14.3 64 0 49.7 0 32zm96 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V112c0-8.8-7.2-16-16-16H112c-8.8 0-16 7.2-16 16zM240 96c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V112c0-8.8-7.2-16-16-16H240zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V112c0-8.8-7.2-16-16-16H368c-8.8 0-16 7.2-16 16zM112 192c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V208c0-8.8-7.2-16-16-16H112zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V208c0-8.8-7.2-16-16-16H240c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V208c0-8.8-7.2-16-16-16H368zM328 384c13.3 0 24.3-10.9 21-23.8c-10.6-41.5-48.2-72.2-93-72.2s-82.5 30.7-93 72.2c-3.3 12.8 7.8 23.8 21 23.8H328z" />
                     </svg>
                 </div>
-                <h2 class="font-car text-gray-800 font-bold text-lg">Company information:</h2>
-                <p class="font-car text-gray-700 font-light text-sm">RealRentCar LLC</p>
-                <p class="font-car text-gray-700 font-light text-sm">Location: Morocco</p>
+                <h2 class="text-lg font-bold text-gray-800 font-car">Company information:</h2>
+                <p class="text-sm font-light text-gray-700 font-car">RealRentCar LLC</p>
+                <p class="text-sm font-light text-gray-700 font-car">Location: Morocco</p>
             </div>
             <div>
-                <div class=" bg-gray-200 rounded-md p-6 w-20 mx-auto mb-3">
+                <div class="w-20 p-6 mx-auto mb-3 bg-gray-200 rounded-md ">
                     <svg id="o" xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 512 512">
                         <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                         <style>
@@ -100,12 +100,12 @@
                             d="M0 32C0 14.3 14.3 0 32 0H480c17.7 0 32 14.3 32 32s-14.3 32-32 32V448c17.7 0 32 14.3 32 32s-14.3 32-32 32H304V464c0-26.5-21.5-48-48-48s-48 21.5-48 48v48H32c-17.7 0-32-14.3-32-32s14.3-32 32-32V64C14.3 64 0 49.7 0 32zm96 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V112c0-8.8-7.2-16-16-16H112c-8.8 0-16 7.2-16 16zM240 96c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V112c0-8.8-7.2-16-16-16H240zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V112c0-8.8-7.2-16-16-16H368c-8.8 0-16 7.2-16 16zM112 192c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V208c0-8.8-7.2-16-16-16H112zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V208c0-8.8-7.2-16-16-16H240c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V208c0-8.8-7.2-16-16-16H368zM328 384c13.3 0 24.3-10.9 21-23.8c-10.6-41.5-48.2-72.2-93-72.2s-82.5 30.7-93 72.2c-3.3 12.8 7.8 23.8 21 23.8H328z" />
                     </svg>
                 </div>
-                <h2 class="font-car text-gray-800 font-bold text-lg">Address:</h2>
-                <p class="font-car text-gray-700 font-light text-sm">DR ANABDOUR AMMELEN TIZNIT</p>
-                <p class="font-car text-gray-700 font-light text-sm">Zip Code/Postal code:85450</p>
+                <h2 class="text-lg font-bold text-gray-800 font-car">Address:</h2>
+                <p class="text-sm font-light text-gray-700 font-car">DR ANABDOUR AMMELEN TIZNIT</p>
+                <p class="text-sm font-light text-gray-700 font-car">Zip Code/Postal code:85450</p>
             </div>
             <div>
-                <div class=" bg-gray-200 rounded-md p-6 w-20 mx-auto mb-3">
+                <div class="w-20 p-6 mx-auto mb-3 bg-gray-200 rounded-md ">
                     <svg id="o" xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 512 512">
                         <!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
                         <style>
@@ -117,8 +117,8 @@
                             d="M0 32C0 14.3 14.3 0 32 0H480c17.7 0 32 14.3 32 32s-14.3 32-32 32V448c17.7 0 32 14.3 32 32s-14.3 32-32 32H304V464c0-26.5-21.5-48-48-48s-48 21.5-48 48v48H32c-17.7 0-32-14.3-32-32s14.3-32 32-32V64C14.3 64 0 49.7 0 32zm96 80v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V112c0-8.8-7.2-16-16-16H112c-8.8 0-16 7.2-16 16zM240 96c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V112c0-8.8-7.2-16-16-16H240zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V112c0-8.8-7.2-16-16-16H368c-8.8 0-16 7.2-16 16zM112 192c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V208c0-8.8-7.2-16-16-16H112zm112 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V208c0-8.8-7.2-16-16-16H240c-8.8 0-16 7.2-16 16zm144-16c-8.8 0-16 7.2-16 16v32c0 8.8 7.2 16 16 16h32c8.8 0 16-7.2 16-16V208c0-8.8-7.2-16-16-16H368zM328 384c13.3 0 24.3-10.9 21-23.8c-10.6-41.5-48.2-72.2-93-72.2s-82.5 30.7-93 72.2c-3.3 12.8 7.8 23.8 21 23.8H328z" />
                     </svg>
                 </div>
-                <h2 class="font-car text-gray-800 font-bold text-lg">Call us:</h2>
-                <p class="font-car text-gray-700 font-light text-sm">Call us to speak to a member of our team. We are always
+                <h2 class="text-lg font-bold text-gray-800 font-car">Call us:</h2>
+                <p class="text-sm font-light text-gray-700 font-car">Call us to speak to a member of our team. We are always
                     happy to help.
                 </p>
                 <p class="font-car text-pr-400 ">+212600000000</p>

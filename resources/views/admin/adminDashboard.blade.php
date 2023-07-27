@@ -55,7 +55,7 @@
                         </a>
 
                         <!-- Card -->
-                        <a href="#reservations">
+                        <a href="javascript:void(0);" onclick="scrollToReservatios();">
                             <div class="flex items-center p-4 bg-white rounded-lg shadow-xs  hover:bg-pr-200 ">
                                 <div class="p-3 mr-4 bg-pr-400 rounded-full ">
                                     <svg style="fill: #fff" xmlns="http://www.w3.org/2000/svg" height="1em"
@@ -103,7 +103,7 @@
 
 
 
-                    <div id="reservations" class="mt-12">
+                    <div class="mt-12">
                         <div class="flex align-middle justify-center">
                             <hr class=" mt-8 h-0.5 w-1/2 bg-pr-500">
                             <p class="my-2 mx-8  p-2 font-car font-bold text-gray-600 text-lg ">RESERVATIONS</p>
@@ -253,4 +253,12 @@
             </main>
         </div>
     </div>
+    <script>
+        function scrollToReservatios() {
+            window.scrollTo({
+                top: 300,
+                behavior: 'smooth'
+            });
+        }
+    </script>
 @endsection

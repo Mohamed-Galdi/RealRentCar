@@ -1,13 +1,13 @@
 @extends('layouts.myapp')
 @section('content')
-    <div class="my-20 flex flex-col justify-center  items-center mx-auto max-w-screen-xl ">
-        <form class=" w-full" action="{{ route('cars.store') }}" method="POST" enctype="multipart/form-data">
+    <div class="flex flex-col items-center justify-center max-w-screen-xl mx-auto my-20 ">
+        <form class="w-full " action="{{ route('cars.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="bg-white w-2/3 border-gray-600 border-2 rounded-md px-24 mx-auto mt-2 space-y-12 pb-8">
-                <div class=" border-b border-gray-900/10 pb-12">
-                    <h2 class="mt-2 text-center font-bold text-lg leading-7 text-gray-900">Fill the new car details</h2>
+            <div class="w-2/3 px-24 pb-8 mx-auto mt-2 space-y-12 bg-white border-2 border-gray-600 rounded-md">
+                <div class="pb-12 border-b border-gray-900/10">
+                    <h2 class="mt-2 text-lg font-bold leading-7 text-center text-gray-900">Fill the new car details</h2>
 
-                    <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
+                    <div class="grid grid-cols-1 mt-10 gap-x-6 gap-y-8 sm:grid-cols-6">
 
                         <div class="sm:col-span-3">
                             <label for="brand" class="block text-sm font-medium leading-6 text-gray-900">Brand</label>
@@ -19,6 +19,7 @@
                                 <span class="text-red-500">{{ $message }}</span>
                             @enderror
                         </div>
+
 
 
                         <div class="sm:col-span-3">
@@ -106,17 +107,17 @@
                             <label for="cover-photo" class="block text-sm font-medium leading-6 text-gray-900">Cover
                                 photo</label>
                             <div
-                                class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                                class="flex justify-center px-6 py-10 mt-2 border border-dashed rounded-lg border-gray-900/25">
                                 <div class="text-center">
-                                    <svg class="mx-auto h-12 w-12 text-gray-300" viewBox="0 0 24 24" fill="currentColor"
+                                    <svg class="w-12 h-12 mx-auto text-gray-300" viewBox="0 0 24 24" fill="currentColor"
                                         aria-hidden="true">
                                         <path fill-rule="evenodd"
                                             d="M1.5 6a2.25 2.25 0 012.25-2.25h16.5A2.25 2.25 0 0122.5 6v12a2.25 2.25 0 01-2.25 2.25H3.75A2.25 2.25 0 011.5 18V6zM3 16.06V18c0 .414.336.75.75.75h16.5A.75.75 0 0021 18v-1.94l-2.69-2.689a1.5 1.5 0 00-2.12 0l-.88.879.97.97a.75.75 0 11-1.06 1.06l-5.16-5.159a1.5 1.5 0 00-2.12 0L3 16.061zm10.125-7.81a1.125 1.125 0 112.25 0 1.125 1.125 0 01-2.25 0z"
                                             clip-rule="evenodd" />
                                     </svg>
-                                    <div class="mt-4 flex text-sm leading-6 text-gray-600">
+                                    <div class="flex mt-4 text-sm leading-6 text-gray-600">
                                         <label for="file-upload"
-                                            class="relative cursor-pointer rounded-md bg-white font-semibold text-pr-400 focus-within:outline-none focus-within:ring-2 focus-within:ring-pr-400 focus-within:ring-offset-2 hover:text-pr-400">
+                                            class="relative font-semibold bg-white rounded-md cursor-pointer text-pr-400 focus-within:outline-none focus-within:ring-2 focus-within:ring-pr-400 focus-within:ring-offset-2 hover:text-pr-400">
                                             <span>Upload a file</span>
                                             <input id="file-upload" name="image" type="file" class="sr-only">
                                         </label>
@@ -165,11 +166,11 @@
                 </div>
 
 
-                <div class="flex items-center justify-center gap-x-6 mb-6">
+                <div class="flex items-center justify-center mb-6 gap-x-6">
                     <a href="{{route('cars.index')}}"
-                        class="text-sm font-semibold leading-6 text-center text-gray-900 border-2 border-pr-200 p-1 w-20 rounded-md hover:bg-white bg-sec-300">Cancel</a>
+                        class="w-20 p-1 text-sm font-semibold leading-6 text-center text-gray-900 border-2 rounded-md border-pr-200 hover:bg-white bg-sec-300">Cancel</a>
                     <button type="submit"
-                        class="w-1/3 rounded-md bg-pr-400 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-pr-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pr-400">Save</button>
+                        class="w-1/3 px-3 py-2 text-sm font-semibold text-white rounded-md shadow-sm bg-pr-400 hover:bg-pr-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pr-400">Save</button>
                 </div>
 
             </div>

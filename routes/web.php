@@ -11,6 +11,7 @@ use App\Http\Controllers\usersController;
 use App\Http\Controllers\addNewAdminController;
 use App\Http\Controllers\invoiceController;
 use App\Http\Controllers\AdminAuth\LoginController;
+use App\Http\Controllers\carSearchController;
 use App\Models\User;
 use App\Models\Car;
 use App\Models\Reservation;
@@ -23,6 +24,7 @@ Route::get('/', function () {
 })->name('home');
 
 Route::get('/cars', [clientCarController::class, 'index'])->name('cars');
+Route::get('/cars/search', [carSearchController::class, 'search'])->name('carSearch');
 
 Route::get('location', function () {
     return view('location');
@@ -45,18 +47,18 @@ Route::redirect('/admin', 'admin/login');
 
 // ------------------- admin routes --------------------------------------- //
 
-Route::prefix('admin')->group(function () {
+Route::prefix('admin')->middleware('admin')->group(function () {
 
     Route::get(
         '/dashboard',
         adminDashboardController::class
-    )->name('adminDashboard')->middleware('admin');
+    )->name('adminDashboard');
 
-    Route::resource('cars', CarController::class)->middleware('admin');
+    Route::resource('cars', CarController::class);
 
     // Route::resource('reservations', ReservationController::class);
 
-    Route::resource('insurances', InsuranceController::class)->middleware('admin');
+    Route::resource('insurances', InsuranceController::class);
 
     Route::get('/users', function () {
 
@@ -64,18 +66,18 @@ Route::prefix('admin')->group(function () {
         $clients = User::where('role', 'client')->paginate(5);
 
         return view('admin.users', compact('admins', 'clients'));
-    })->name('users')->middleware('admin');
+    })->name('users');
 
-    Route::get('/updatePayment/{reservation}', [ReservationController::class, 'editPayment'])->name('editPayment')->middleware('admin');
-    Route::put('/updatePayment/{reservation}', [ReservationController::class, 'updatePayment'])->name('updatePayment')->middleware('admin');
+    Route::get('/updatePayment/{reservation}', [ReservationController::class, 'editPayment'])->name('editPayment');
+    Route::put('/updatePayment/{reservation}', [ReservationController::class, 'updatePayment'])->name('updatePayment');
 
-    Route::get('/updateReservation/{reservation}', [ReservationController::class, 'editStatus'])->name('editStatus')->middleware('admin');
-    Route::put('/updateReservation/{reservation}', [ReservationController::class, 'updateStatus'])->name('updateStatus')->middleware('admin');
+    Route::get('/updateReservation/{reservation}', [ReservationController::class, 'editStatus'])->name('editStatus');
+    Route::put('/updateReservation/{reservation}', [ReservationController::class, 'updateStatus'])->name('updateStatus');
 
-    Route::get('/addAdmin', [usersController::class, 'create'])->name('addAdmin')->middleware('admin');
-    Route::post('/addAdmin', [addNewAdminController::class, 'register'])->name('addNewAdmin')->middleware('admin');
+    Route::get('/addAdmin', [usersController::class, 'create'])->name('addAdmin');
+    Route::post('/addAdmin', [addNewAdminController::class, 'register'])->name('addNewAdmin');
 
-    Route::delete('/deleteUser/{user}', [usersController::class, 'destroy'])->name('deleteUser')->middleware('admin');
+    Route::delete('/deleteUser/{user}', [usersController::class, 'destroy'])->name('deleteUser');
 });
 
 // --------------------------------------------------------------------------//
