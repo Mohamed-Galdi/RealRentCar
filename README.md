@@ -33,9 +33,9 @@ This is a car rental project developed for the graduation Project. It is built u
 
 4. Create a copy of the `.env.example` file and rename it to `.env`. Configure the database settings in the `.env` file.
 
-5. Generate an application key: `php artisan key:generate`
+<!-- 5. Generate an application key: `php artisan key:generate` -->
 
-6. Run the database migrations: `php artisan migrate`
+5. Run the database migrations: `php artisan migrate`
 
 7. Seed database cars table: `php artisan db:seed --class=CarSeeder`
 

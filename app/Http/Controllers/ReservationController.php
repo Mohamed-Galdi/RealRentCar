@@ -35,7 +35,7 @@ class ReservationController extends Controller
         $request->validate([
             'start_date' => 'required|date|after_or_equal:today',
             'end_date' => 'required|date|after:start_date',
-            
+
         ]);
 
 
@@ -106,6 +106,11 @@ class ReservationController extends Controller
     {
         $reservation = Reservation::find($reservation->id);
         $reservation->status = $request->status;
+        $car = $reservation->car;
+        if($request->status == 'Ended' || $request->status == 'Canceled' ){
+            $car->status = 'Available';
+            $car->save();
+        }
         $reservation->save();
         return redirect()->route('adminDashboard');
     }

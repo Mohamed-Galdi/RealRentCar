@@ -77,7 +77,9 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::get('/addAdmin', [usersController::class, 'create'])->name('addAdmin');
     Route::post('/addAdmin', [addNewAdminController::class, 'register'])->name('addNewAdmin');
 
-    Route::delete('/deleteUser/{user}', [usersController::class, 'destroy'])->name('deleteUser');
+    // Route::delete('/deleteUser/{user}', [usersController::class, 'destroy'])->name('deleteUser');
+
+    Route::get('/userDetails/{user}', [usersController::class, 'show'])->name('userDetails');
 });
 
 // --------------------------------------------------------------------------//

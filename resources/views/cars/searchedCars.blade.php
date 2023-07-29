@@ -16,15 +16,13 @@
                 <div>
                     <button class="w-20 p-2 font-medium text-white rounded-md bg-pr-400 hover:bg-pr-500" type="submit">
                         Search</button>
+                    <a href={{ route('cars') }}>
 
-                    <button class="w-20 p-2 font-medium text-white rounded-md bg-pr-400 hover:bg-pr-500" type="submit"> All
-                    </button>
-
-
+                        <button class="w-20 p-2 font-medium text-white rounded-md bg-pr-400 hover:bg-pr-500" type="button">
+                            All
+                        </button>
+                    </a>
                 </div>
-
-
-
             </div>
         </form>
     </div>
@@ -81,7 +79,15 @@
                 </div>
             </div>
         @empty
-            no car fond
+            <div class="mx-auto max-w-screen-xl h-[300px] items-center ">
+                <p class="mx-auto"></p>
+            </div>
+            <div class="mx-auto max-w-screen-xl h-[300px] items-center ">
+                <p class="mx-auto mt-[100px] text-4xl font-medium font-car  ">no car fond ! </p>
+            </div>
+            <div class="mx-auto max-w-screen-xl h-[300px] items-center ">
+                <p class="mx-auto"></p>
+            </div>
         @endforelse
     </div>
 

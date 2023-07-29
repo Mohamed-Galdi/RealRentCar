@@ -1,40 +1,40 @@
 @extends('layouts.myapp')
 @section('content')
-    <div class="mx-auto max-w-screen-xl">
+    <div class="mx-auto max-w-screen-xl ">
         <div class=" bg-white rounded-md p-6 flex my-12">
             <div class="w-1/4 border-r border-gray-900 flex flex-col gap-8">
                 <div class="flex justify-center">
-                    <img loading="lazy" class="w-[150px]" src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}">
+                    <img loading="lazy" class="w-[150px]" src="{{ $user->avatar }}" alt="{{ $user->name }}">
                 </div>
                 <div class="">
                     <h2 class="text-lg font-medium text-gray-900"><span
                             class="text-lg font-car font-normal text-gray-500">Name:
-                        </span>{{ Auth::user()->name }}</h2>
+                        </span>{{ $user->name }}</h2>
                     <h2 class="text-lg font-medium text-gray-900"><span
                             class="text-lg font-car font-normal text-gray-500">Eamil:
-                        </span>{{ Auth::user()->email }}</h2>
+                        </span>{{ $user->email }}</h2>
 
                     <h2 class="text-lg font-medium text-green-600"><span
                             class="text-lg font-car font-normal text-gray-500">Active
-                            Reservations: </span>{{ Auth::user()->reservations->where('status', 'Active')->count() }}</h2>
+                            Reservations: </span>{{ $user->reservations->where('status', 'Active')->count() }}</h2>
                     <h2 class="text-lg font-medium text-yellow-300"><span
                             class="text-lg font-car font-normal text-gray-500">Pending
-                            Reservations: </span>{{ Auth::user()->reservations->where('status', 'Pending')->count() }}</h2>
+                            Reservations: </span>{{ $user->reservations->where('status', 'Pending')->count() }}</h2>
                     <h2 class="text-lg font-medium text-Black"><span
                             class="text-lg font-car font-normal text-gray-500">Ended
-                            Reservations: </span>{{ Auth::user()->reservations->where('status', 'Ended')->count() }}</h2>
+                            Reservations: </span>{{ $user->reservations->where('status', 'Ended')->count() }}</h2>
                     <h2 class="text-lg font-medium text-red-600"><span
                             class="text-lg font-car font-normal text-gray-500">Canceled
-                            Reservations: </span>{{ Auth::user()->reservations->where('status', 'Canceled')->count() }}</h2>
+                            Reservations: </span>{{ $user->reservations->where('status', 'Canceled')->count() }}</h2>
                     <h2 class="text-lg font-medium text-pr-400"><span
                             class="text-lg font-car font-normal text-gray-500">Total
-                            Reservations: </span>{{ Auth::user()->reservations->count() }}</h2>
+                            Reservations: </span>{{ $user->reservations->count() }}</h2>
 
                 </div>
             </div>
 
             <div class="w-3/4">
-                @forelse ($reservations as $reservation)
+                @foreach ($user->reservations as $reservation)
                     <div class="flex justify-start  m-6 rounded-lg bg-gray-200">
                         <div class="w-[350px] h-[250px]  overflow-hidden p-1  m-3 rounded-md">
                             <img loading="lazy" class="w-full h-full object-cover overflow-hidden rounded-md"
@@ -101,21 +101,11 @@
 
                             </div>
 
-                            <div class="mt-8 text-center w-full px-2">
-                                <a href="{{ route('invoice', ['reservation' => $reservation->id]) }}">
-                                    <button class="bg-pr-400 p-3 text-white font-bold hover:bg-black w-full rounded-md ">
-                                        Get Reservation Invoice</button>
-                                </a>
-                            </div>
 
                         </div>
 
                     </div>
-                @empty
-                    <div class="h-full w-full flex justify-center items-center">
-                        <h2 class="font-medium text-2xl ">There no reservations yet</h2>
-                    </div>
-                @endforelse
+                @endforeach
 
             </div>
 

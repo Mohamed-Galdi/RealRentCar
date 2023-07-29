@@ -87,7 +87,7 @@
                                     @if ($client->reservations->count() > 0)
                                         <p>
                                             <span class=" font-bold text-">{{ $client->reservations->count() }} </span>
-                                            active reservation
+                                             reservation
                                         </p>
                                     @else
                                         no active reservations!!!
@@ -95,14 +95,12 @@
                                 </td>
 
                                 <td class="px-4 py-3 text-sm w-32">
-                                    <form action="{{ route('deleteUser', ['user' => $client->id]) }}" method="POST">
-                                        @csrf
-                                        @method('DELETE')
+                                    <a href="{{ route('userDetails', ['user' => $client->id]) }}" >
                                         <button type="submit"
-                                            class="bg-red-500 text-white p-3 rounded-md hover:bg-red-700">
-                                            remove user
+                                            class="bg-blue-500 text-white p-3 rounded-md hover:bg-blue-700">
+                                            Details
                                         </button>
-                                    </form>
+                                    </a>
 
                                 </td>
 

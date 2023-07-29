@@ -7,10 +7,9 @@ use Illuminate\Http\Request;
 
 class usersController extends Controller
 {
-    public function destroy(User $user){
+    public function show(User $user){
         $user = User::find($user->id);
-        $user->delete();
-        return redirect()->route('users');
+        return view('admin.clientDetails', compact('user'));
     }
 
     public function create(){
