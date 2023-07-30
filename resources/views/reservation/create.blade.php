@@ -1,11 +1,12 @@
 @extends('layouts.myapp')
 @section('content')
     <div class="mx-auto max-w-screen-xl bg-white rounded-md p-6 m-8 ">
-        <div class="flex justify-between ">
+        <div class="flex justify-between md:flex-row flex-col ">
             {{-- -------------------------------------------- left -------------------------------------------- --}}
-            <div class="w-2/3 border-r border-gray-800 p-2">
+            <div class="md:w-2/3  md:border-r border-gray-800 p-2">
 
-                <h2 class=" ms-4 max-w-full font-car text-6xl">{{ $car->brand }} {{ $car->model }} {{ $car->engine }}
+                <h2 class=" ms-4 max-w-full font-car md:text-6xl text-4xl">{{ $car->brand }} {{ $car->model }}
+                    {{ $car->engine }}
                 </h2>
 
                 <div class=" flex items-end mt-8 ms-4">
@@ -22,14 +23,15 @@
                 </div>
 
                 <div class=" flex items-center justify-around mt-10 me-10">
-                    <div class="w-1/3 h-[0.25px] bg-gray-500 "> </div>
+                    <div class="w-1/5 md:w-1/3 h-[0.25px] bg-gray-500 "> </div>
                     <p>Order Informations</p>
-                    <div class="w-1/3 h-[0.25px] bg-gray-500 "> </div>
+                    <div class="w-1/5 md:w-1/3 h-[0.25px] bg-gray-500 "> </div>
 
                 </div>
 
-                <div class="px-6 me-8">
-                    <form action="{{ route('car.reservationStore', ['car' => $car->id]) }}" method="POST">
+                <div class="px-6 md:me-8">
+                    <form id="reservation_form" action="{{ route('car.reservationStore', ['car' => $car->id]) }}"
+                        method="POST">
                         @csrf
                         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
 
@@ -82,7 +84,7 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="mt-12  ">
+                        <div class="mt-12 md:block hidden  ">
                             <button type="submit"
                                 class="text-white bg-pr-400 p-3 w-full rounded-lg font-bold hover:bg-black shadow-xl hover:shadow-none ">Order
                                 Now</button>
@@ -94,7 +96,7 @@
 
             {{-- -------------------------------------------- right -------------------------------------------- --}}
 
-            <div class="w-1/3 flex flex-col justify-start items-center">
+            <div class="md:w-1/3 flex flex-col justify-start items-center">
                 <div class="relative mx-3 mt-3 flex h-[200px] w-3/4   overflow-hidden rounded-xl shadow-lg">
                     <img loading="lazy" class="h-full w-full object-cover" src="{{ $car->image }}" alt="product image" />
                     <span
@@ -102,10 +104,10 @@
                         %
                         OFF</span>
                 </div>
-                <p class=" ms-4 max-w-full font-car text-xl mt-3">{{ $car->brand }} {{ $car->model }}
+                <p class=" ms-4 max-w-full font-car text-xl mt-3 md:block hidden">{{ $car->brand }} {{ $car->model }}
                     {{ $car->engine }}
                 </p>
-                <div class="mt-3 ms-4">
+                <div class="mt-3 ms-4 md:block hidden">
                     <div class="flex items-center">
                         @for ($i = 0; $i < $car->stars; $i++)
                             <svg aria-hidden="true" class="h-4 w-4 text-pr-300" fill="currentColor" viewBox="0 0 20 20"
@@ -145,6 +147,11 @@
                             $</span>
                     </p>
                 </div>
+                <div id="mobile_submit_button" class="mt-12 w-full md:hidden  ">
+                    <button type="submit"
+                        class="text-white bg-pr-400 p-3 w-full rounded-lg font-bold hover:bg-black shadow-xl hover:shadow-none ">Order
+                        Now</button>
+                </div>
             </div>
         </div>
 
@@ -173,6 +180,10 @@
                     $('#total-price span').text('Y $');
                 }
             });
+        });
+
+        document.getElementById("mobile_submit_button").addEventListener("click", function() {
+            document.getElementById("reservation_form").submit();
         });
     </script>
 @endsection

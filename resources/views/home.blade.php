@@ -6,18 +6,21 @@
 
         <div class="bg-sec-100 ">
             {{-- hero --}}
-
-            <div class="flex justify-center py-28 mx-auto max-w-screen-xl">
-                <div class="flex  flex-col justify-center w-3/5 ms-20">
-                    <h1 class=" font-car font-bold text-gray-900 mb-8  text-7xl"><span class="text-pr-400"> EASY </span>AND
+            <div class="flex justify-center md:py-28 py-12 mx-auto max-w-screen-xl">
+                <div class="flex  flex-col justify-center md:w-3/5  mx-12 md:ms-20 md:mx-0">
+                    <h1 class=" md:text-start text-center  font-car font-bold text-gray-900 mb-8  md:text-7xl text-4xl "><span class="text-pr-400"> EASY
+                        </span>AND
                         FAST WAY TO RENT YOUR CAR</h1>
-                    <p>Whether you're planning a weekend
+                    <div class="md:w-3/5 md:hidden  ">
+                        <img loading="lazy" src="/images/home car.png" alt="home car">
+                    </div>
+                    <p class="text-justify md:mx-0 mx-8 ">Whether you're planning a weekend
                         getaway or a cross-country adventure, we've got you covered. With our wide selection of vehicles and
                         convenient booking system, renting a car has never been this effortless.</p>
-                    <div class="flex justify-center mt-12 w-2/3">
+                    <div class="flex justify-center md:justify-start mt-12 md:w-2/3 me-12 md:-ms-12">
                         <a href="/cars">
                             <button
-                                class="bg-pr-400 p-2 border-2 border-white rounded-md text-white hover:bg-pr-500 w-32 mx-12 font-bold ">CARS</button>
+                                class="bg-pr-400 p-2 border-2 border-white rounded-md text-white hover:bg-pr-500 w-32 md:me-12 md:mx-12 mx-7 font-bold ">CARS</button>
                         </a>
                         <a href="/contact_us">
                             <button class="border-2 border-pr-400 text-black w-32 p-2 rounded-md hover:bg-sec-400">CONTACT
@@ -25,7 +28,7 @@
                         </a>
                     </div>
                 </div>
-                <div class="w-3/5">
+                <div class="md:w-3/5 hidden md:block  ">
                     <img loading="lazy" src="/images/home car.png" alt="home car">
                 </div>
 
@@ -41,7 +44,7 @@
                     <hr class=" mt-8 h-0.5 w-2/5 bg-pr-500">
                     <hr>
                 </div>
-                <div class="   mr-16  flex justify-end">
+                <div class="   md:mr-16 mr-4 mb-4 flex justify-end">
                     <a href="/cars">
                         <button
                             class="border-2 border-pr-400 text-black w-16 p-1 rounded-md hover:bg-pr-400 hover:text-white">See
@@ -50,10 +53,10 @@
                 </div>
             </div>
 
-            <div class=" grid grid-cols-3  ps-4 justify-center items-center mx-auto max-w-screen-xl">
+            <div class=" grid md:grid-cols-3  md:ps-4 justify-center p-2 gap-4 items-center mx-auto max-w-screen-xl ">
                 @foreach ($cars as $car)
                     <div
-                        class="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
+                        class="relative md:m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
                         <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="#">
                             <img loading="lazy" class="object-cover" src="{{ $car->image }}" alt="product image" />
                             <span
@@ -88,7 +91,7 @@
                                         class="mr-2 ml-3 rounded bg-pr-300 px-2.5 py-0.5 text-xs font-semibold">{{ $car->stars }}.0</span>
                                 </div>
                             </div>
-                            <a href="{{route('car.reservation', ['car' => $car->id])}}"
+                            <a href="{{ route('car.reservation', ['car' => $car->id]) }}"
                                 class="flex items-center justify-center rounded-md bg-slate-900 hover:bg-pr-400 px-5 py-2.5 text-center text-sm font-medium text-white  focus:outline-none focus:ring-4 focus:ring-blue-300">
                                 <svg id="thisicon" class="mr-4 h-6 w-6" xmlns="http://www.w3.org/2000/svg" height="1em"
                                     viewBox="0 0 512 512">
@@ -112,21 +115,25 @@
                     <h2 class="text-center font-car text-3xl font-medium text-pr-400"> <span
                             class=" text-gray-900">Our</span> Numbers</h2>
                 </div>
-                <div class="bg-gray-800 text-white  mt-6 rounded-md flex justify-evently mx-16 max-w-screen-xl">
+                <div
+                    class="bg-gray-800 text-white  mt-6 rounded-md flex md:flex-row flex-col md:justify-evently items-center gap-6 md:gap-0  mx-16 max-w-screen-xl">
 
-                    <div class="flex justify-around w-1/3 text-center my-4 h-16 align-middle border-r-2 border-white">
+                    <div
+                        class="flex justify-around md:w-1/3 text-center my-4 h-16 align-middle md:border-b-0 md:border-r-2 border-b-2 pb-4 border-white">
                         <div class="flex flex-col justify-center">
                             <h3 class="font-car font-medium text-4xl">80</h3>
                             <p class="font-car  text-lg">Super Cars</p>
                         </div>
                     </div>
-                    <div class="flex justify-around w-1/3 text-center my-4 h-16 align-middle border-r-2 border-white">
+                    <div
+                        class="flex justify-around md:w-1/3 text-center my-4 h-16 align-middle md:border-b-0 md:border-r-2 border-b-2 pb-4 border-white">
                         <div class="flex flex-col justify-center">
                             <h3 class="font-car font-medium text-4xl">4500 + </h3>
                             <p class="font-car  text-lg">Satisdied Client</p>
                         </div>
                     </div>
-                    <div class="flex justify-around w-1/3 text-center my-4 h-16 align-middle ">
+                    <div
+                        class="flex justify-around md:w-1/3 text-center my-4 h-16 align-middle  border-b-2 pb-4 border-white md:border-b-0">
                         <div class="flex flex-col justify-center">
                             <h3 class="font-car font-medium text-4xl">7000</h3>
                             <p class="font-car  text-lg">Reservation</p>
@@ -144,7 +151,7 @@
                             class=" text-gray-900">Why</span> Choose us</h2>
                 </div>
                 <div class="mt-7 mb-16">
-                    <p class="text-center text-xl">We
+                    <p class="md:text-center text-xl text-justify mx-8 ">We
                         prioritize your satisfaction and strive to make your car rental experience as seamless as possible.
                         With our wide selection of well-maintained vehicles, competitive prices, and simple booking process,
                         you can trust us to meet your needs. Our dedicated customer service team is available around the
@@ -153,7 +160,7 @@
                 </div>
 
                 <div
-                    class=" grid grid-cols-3 p-12 gap-6 my-8 mx-auto max-w-screen-xl border-[0.5px] border-gray-700 rounded-lg bg-white">
+                    class=" grid md:grid-cols-3 md:p-12 p-4 gap-6 my-8 md:mx-auto mx-8 max-w-screen-xl border-[0.5px] border-gray-700 rounded-lg bg-white">
                     <div class="flex justify-center align-middle ">
                         <div class="bg-gray-800 p-3 rounded-lg mx-3 mb-6 mt-2">
                             <svg xmlns="http://www.w3.org/2000/svg" height="2.5em" viewBox="0 0 512 512">
@@ -169,7 +176,8 @@
                         </div>
                         <div>
                             <h3 class="font-car font-bold text-gray-900 text-2xl">Customer Support</h3>
-                            <p class="font-car text-gray-700 text-sm ">Our dedicated team is here to provide exceptional customer support whenever you need it.</p>
+                            <p class="font-car text-gray-700 text-sm ">Our dedicated team is here to provide exceptional
+                                customer support whenever you need it.</p>
                         </div>
                     </div>
                     <div class="flex justify-center align-middle ">
@@ -187,7 +195,8 @@
                         </div>
                         <div>
                             <h3 class="font-car font-bold text-gray-900 text-2xl">Super Cars</h3>
-                            <p class="font-car text-gray-700 text-sm "> Experience the thrill of driving our top-of-the-line supercars that are sure to leave a lasting impression.</p>
+                            <p class="font-car text-gray-700 text-sm "> Experience the thrill of driving our top-of-the-line
+                                supercars that are sure to leave a lasting impression.</p>
                         </div>
                     </div>
                     <div class="flex justify-center align-middle ">
@@ -205,7 +214,8 @@
                         </div>
                         <div>
                             <h3 class="font-car font-bold text-gray-900 text-2xl">Free Cancelation</h3>
-                            <p class="font-car text-gray-700 text-sm "> Enjoy the flexibility of free cancellation, giving you peace of mind in case your plans change.</p>
+                            <p class="font-car text-gray-700 text-sm "> Enjoy the flexibility of free cancellation, giving
+                                you peace of mind in case your plans change.</p>
                         </div>
                     </div>
                     <div class="flex justify-center align-middle ">
@@ -223,7 +233,8 @@
                         </div>
                         <div>
                             <h3 class="font-car font-bold text-gray-900 text-2xl">Best Price</h3>
-                            <p class="font-car text-gray-700 text-sm ">We guarantee the best prices for our rental cars, ensuring you get the most value for your money.
+                            <p class="font-car text-gray-700 text-sm ">We guarantee the best prices for our rental cars,
+                                ensuring you get the most value for your money.
                             </p>
                         </div>
                     </div>
@@ -242,7 +253,8 @@
                         </div>
                         <div>
                             <h3 class="font-car font-bold text-gray-900 text-2xl">Easy Process</h3>
-                            <p class="font-car text-gray-700 text-sm ">Our streamlined process makes renting a car quick and effortless, saving you time and hassle.
+                            <p class="font-car text-gray-700 text-sm ">Our streamlined process makes renting a car quick
+                                and effortless, saving you time and hassle.
                             </p>
                         </div>
                     </div>
@@ -261,7 +273,8 @@
                         </div>
                         <div>
                             <h3 class="font-car font-bold text-gray-900 text-2xl">Digital services</h3>
-                            <p class="font-car text-gray-700 text-sm ">Take advantage of our convenient digital services, making your car rental experience even more convenient and efficient.
+                            <p class="font-car text-gray-700 text-sm ">Take advantage of our convenient digital services,
+                                making your car rental experience even more convenient and efficient.
                             </p>
                         </div>
                     </div>

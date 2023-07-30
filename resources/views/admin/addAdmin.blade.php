@@ -1,7 +1,7 @@
 @extends('layouts.myapp')
 @section('content')
     <div class="grid place-items-center " >
-        <div class="border p-5 w-1/2 bg-sec-100 my-12">
+        <div class="border p-5 md:w-1/2 mx-4 bg-sec-100 my-12">
             <form method="POST" action="{{ route('addNewAdmin') }}" enctype="multipart/form-data">
                 @csrf
 
@@ -28,7 +28,7 @@
                     @enderror
                 </div>
 
-                <div class="flex justify-evenly px-6 py-4 items-center text-center">
+                <div class="flex md:flex-row flex-col  justify-evenly px-6 py-4 items-center text-center">
 
                     <div class="grid grid-cols-3 ">
                         <div class="m-3">
@@ -69,7 +69,7 @@
                         </div>
                     </div>
 
-                    <div class="w-1/3">
+                    <div class="md:w-1/3 mb-2">
                         <p>OR</p>
                     </div>
 

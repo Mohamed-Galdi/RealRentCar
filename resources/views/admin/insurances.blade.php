@@ -8,7 +8,7 @@
 
 
                     <!-- Cards -->
-                    <div class="grid grid-cols-3 gap-6 mb-8 mt-16 ">
+                    <div class="grid md:grid-cols-3 gap-6 mb-8 mt-16 ">
                         <!-- Card -->
                         <div class="flex items-center p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
                             <div class="p-3 mr-4 bg-blue-400 rounded-full ">

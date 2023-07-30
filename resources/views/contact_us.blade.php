@@ -7,9 +7,9 @@
             technical issue? Want to send feedback about a beta feature? Need details about our Business plan?
             Let us know.</p>
     </div>
-    <div class="flex justify-between max-w-screen-xl px-16 mx-auto ">
-        <div class="w-1/2 mb-12 ">
-            <form action="#" class="space-y-8">
+    <div class="flex md:flex-row flex-col justify-between max-w-screen-xl md:px-16 px-8 mx-auto gap-12 ">
+        <div class="md:w-1/2 order-last md:order-first mb-12 ">
+            <form action="#" class="space-y-8" id="contact-form">
                 <div class="flex justify-between">
                     <div class="w-full mr-5">
                         <label for="email" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">First
@@ -69,7 +69,7 @@
                     message</button>
             </form>
         </div>
-        <div class="grid mx-auto text-center ">
+        <div class="grid mx-auto text-center gap-4 ">
             <div>
                 <div class="w-20 p-6 mx-auto mb-3 bg-gray-200 rounded-md ">
                     <svg id="o" xmlns="http://www.w3.org/2000/svg" height="2em" viewBox="0 0 512 512">
@@ -123,8 +123,25 @@
                 </p>
                 <p class="font-car text-pr-400 ">+212600000000</p>
             </div>
+            <hr class="my-6  sm:mx-auto border-gray-700 lg:my-8 md:hidden" />
+
 
         </div>
 
     </div>
+
+    <script>
+        $(document).ready(function() {
+            function showPopup() {
+                alert('Thank you! We have received your message.');
+            }
+
+            $('#contact-form').submit(function(e) {
+                e.preventDefault();
+
+                showPopup();
+
+            });
+        });
+    </script>
 @endsection

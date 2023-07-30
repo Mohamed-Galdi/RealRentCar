@@ -11,7 +11,7 @@
 
 <body>
     <div class="bg-gray-200 flex justify-center items-center h-screen">
-        <div class="bg-white p-6 rounded-md w-1/3">
+        <div class="bg-white p-6 rounded-md md:w-1/3 w-full mx-4">
             <h2 class="text-center font-car font-medium text-xl">{{ $reservation->car->brand }}
                 {{ $reservation->car->model }}</h2>
             <h2 class="text-start mt-4 text-gray-500 ">Current Reservation Status: <span

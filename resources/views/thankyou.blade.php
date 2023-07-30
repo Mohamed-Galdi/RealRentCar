@@ -12,15 +12,15 @@
 
 <body class="mx-auto max-w-screen-xl bg-gray-200">
     <div class="h-screen bg-gray-200 flex justify-center items-center ">
-        <div class="bg-white w-3/5 h-4/5 rounded-lg shadow-xl flex flex-col justify-start items-center gap-8">
+        <div class="bg-white md:w-3/5 h-4/5 rounded-lg mx-4 shadow-xl flex flex-col justify-start items-center gap-8">
             <div class="w-32 mt-10">
                 <img loading="lazy"  src="/images/logos/LOGO.png" alt="">
             </div>
             <div class="">
-                <h1 class="font-car font-bold text-gray-900 text-6xl">Thank You ❤️</h1>
-                <p class="font-car">Thank you for choosing and trusting our car company</p>
+                <h1 class="font-car font-bold text-gray-900 text-6xl text-center">Thank You ❤️</h1>
+                <p class="font-car text-center">Thank you for choosing and trusting our car company</p>
             </div>
-            <div class="relative bg-gray-200 w-3/5 mt-10">
+            <div class="relative bg-gray-200 md:w-3/5 m-4 md:mt-10">
                 <div
                     class="w-0 h-0 absolute -top-[29px] left-[215px] border-l-[20px] border-l-transparent border-b-[30px] border-b-gray-200 border-r-[20px] border-r-transparent">
                 </div>

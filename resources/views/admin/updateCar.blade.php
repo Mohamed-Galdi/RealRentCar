@@ -5,7 +5,7 @@
             enctype="multipart/form-data">
             @csrf
             @method('PUT')
-            <div class="bg-white w-2/3 border-gray-600 border-2 rounded-md px-24 mx-auto mt-2 space-y-12 pb-8">
+            <div class="md:w-2/3 w-5/6 md:px-24 px-4 pb-8 mx-auto mt-2 space-y-12 bg-white border-2 border-gray-600 rounded-md">
                 <div class=" border-b border-gray-900/10 pb-12">
                     <h2 class="mt-2 text-center font-bold text-lg leading-7 text-gray-900">Updating the car: <span
                             class="text-pr-400"> {{ $car->brand }} {{ $car->model }} {{ $car->engine }}</span></h2>

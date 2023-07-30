@@ -3,7 +3,7 @@
     <div class="my-20 flex flex-col justify-center  items-center mx-auto max-w-screen-xl ">
         <form class=" w-full" action="{{ route('insurances.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
-            <div class="bg-white w-2/3 border-gray-600 border-2 rounded-md px-24 mx-auto mt-2 space-y-12 pb-8">
+            <div class="md:w-2/3 w-5/6 md:px-24 px-4 pb-8 mx-auto mt-2 space-y-12 bg-white border-2 border-gray-600 rounded-md">
                 <div class=" border-b border-gray-900/10 pb-12">
                     <h2 class="mt-2 text-center font-bold text-lg leading-7 text-gray-900">Link an insurance to a car</h2>
 

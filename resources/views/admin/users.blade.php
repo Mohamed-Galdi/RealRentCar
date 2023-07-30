@@ -16,9 +16,9 @@
 
         </div>
 
-        <div class="grid grid-cols-3  gap-6 mt-6">
+        <div class="grid md:grid-cols-3  gap-6 mt-6">
             @foreach ($admins as $admin)
-                <div class="bg-white shadow-xl rounded-md flex  justify-start items-center ">
+                <div class="bg-white shadow-xl rounded-md flex  justify-start items-center mx-2 ">
                     <div class="w-1/6 m-3 ">
                         <img loading="lazy" src="{{ $admin->avatar }}" alt="admin avatar" class="">
                     </div>

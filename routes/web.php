@@ -39,6 +39,16 @@ Route::post('admin/login', [LoginController::class, 'login'])->name('admin.login
 
 Route::redirect('/admin', 'admin/login');
 
+Route::get('/privacy_policy',
+function () {
+    return view('Privacy_Policy');
+})->name('privacy_policy');
+
+Route::get('/terms_conditions',
+function () {
+    return view('Terms_Conditions');
+})->name('terms_conditions');
+
 
 // -------------------------------------------------------------------------//
 

@@ -2,8 +2,8 @@
 @section('content')
     <div class="bg-gray-200 mx-auto max-w-screen-xl mt-10 p-3 rounded-md shadow-xl">
         <form action="{{route('carSearch')}}">
-            <div class="flex justify-center gap-28">
-                <div class="flex justify-evenly gap-16">
+            <div class="flex justify-center md:flex-row flex-col md:gap-28 gap-4">
+                <div class="flex justify-evenly md:flex-row flex-col md:gap-16 gap-2">
                     <input type="text" placeholder="brand" name="brand"
                     class="block  rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm sm:leading-6"
                 >
@@ -21,10 +21,10 @@
             </div>
         </form>
     </div>
-    <div class="mt-6 mb-2 grid grid-cols-3  justify-center items-center mx-auto max-w-screen-xl">
+    <div class="mt-6 mb-2 grid md:grid-cols-3  justify-center items-center mx-auto max-w-screen-xl">
         @foreach ($cars as $car)
             <div
-                class="relative m-10 flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
+                class="relative md:m-10 m-4w flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
                 <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="#">
                     <img loading="lazy" class="object-cover" src="{{ $car->image }}" alt="product image" />
                     <span

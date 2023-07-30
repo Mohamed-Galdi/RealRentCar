@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
 
     <title>{{ config('app.name', 'Laravel') }}</title>
     @vite('resources/css/app.css')
@@ -23,16 +25,16 @@
 
     {{-- -------------------------------------------------------------- Header -------------------------------------------------------------- --}}
     @guest
-        <header >
+        <header>
             <nav class="bg-sec-600 border-gray-200 px-4 lg:px-6 py-4 dark:bg-gray-800 ">
                 <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl drop-shadow-2xl">
                     {{-- LOGO --}}
                     <a href="{{ route('home') }}" class="flex items-center">
-                        <img loading="lazy" src="/images/logos/LOGOtext.png" class="mr-3 h-6 sm:h-12" alt="Flowbite Logo" />
+                        <img loading="lazy" src="/images/logos/LOGOtext.png" class="mr-3 h-12" alt="Flowbite Logo" />
                     </a>
 
                     {{-- login & Register buttons --}}
-                    <div class="flex items-center lg:order-2">
+                    <div class="flex items-center  lg:order-2">
                         <a href="{{ route('login') }}">
                             <button type="button"
                                 class=" px-4 lg:px-5 py-2 lg:py-2.5 mr-2 text-white bg-gradient-to-br from-pr-400 to-pr-300 hover:bg-gradient-to-bl font-medium rounded-lg text-sm ">
@@ -116,26 +118,26 @@
             </nav>
         </header>
     @else
-        <header >
+        <header>
             <nav class="bg-sec-600 border-gray-200 px-4 lg:px-6 py-4 dark:bg-gray-800">
                 <div class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl">
                     {{-- LOGO --}}
                     <a href="{{ route('home') }}" class="flex items-center">
-                        <img loading="lazy" src="/images/logos/LOGOtext.png" class="mr-3 h-6 sm:h-12" alt="Flowbite Logo" />
+                        <img loading="lazy" src="/images/logos/LOGOtext.png" class="mr-3 h-12" alt="Flowbite Logo" />
                     </a>
 
                     {{-- Dropdown button --}}
 
 
                     @if (Auth::user()->role == 'admin')
-                        <div class="hidden justify-between items-center w-full lg:flex lg:w-auto" id="mobile-menu-2">
-                            <ul class="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0 ">
+                        <div class="hidden justify-between mb-6 items-center w-full lg:flex lg:w-auto" id="mobile-menu-2">
+                            <ul class="flex flex-col  font-medium lg:flex-row lg:space-x-8 lg:mt-0 ">
                                 <li>
                                     <a href='{{ route('adminDashboard') }}'>
                                         <div class="group text-center">
                                             <div class="group-hover:cursor-pointer">Dashboard</div>
                                             <div
-                                                class="block invisible bg-pr-400 w-18 h-1 rounded-md text-center -bottom-1 mx-auto relative group-hover:visible">
+                                                class="block invisible bg-pr-400 w-20 h-1 rounded-md text-center -bottom-1 mx-auto relative group-hover:visible">
                                             </div>
                                     </a>
 
@@ -156,7 +158,7 @@
                                         <div class="group text-center">
                                             <div class="group-hover:cursor-pointer">Insurances</div>
                                             <div
-                                                class="block invisible bg-pr-400 w-18 h-1 rounded-md text-center -bottom-1 mx-auto relative group-hover:visible">
+                                                class="block invisible bg-pr-400 w-20 h-1 rounded-md text-center -bottom-1 mx-auto relative group-hover:visible">
                                             </div>
                                     </a>
                                 </li>
@@ -256,6 +258,7 @@
 
                             </ul>
                         </div>
+
                         <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown"
                             class="text-black bg-pr-400 hover:bg-pr-600 font-medium rounded-lg text-sm px-3 py-2.5 text-center inline-flex items-center "
                             type="button">
@@ -268,6 +271,7 @@
                                 </path>
                             </svg>
                         </button>
+
                         <!-- Dropdown menu -->
                         <div id="dropdown"
                             class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
@@ -332,14 +336,14 @@
         <footer class="px-4  sm:p-6 bg-gray-800">
             <div class="pt-10 mx-auto max-w-screen-xl relative">
                 <div class="md:flex md:justify-between">
-                    <div class="mb-6 md:mb-0">
+                    <div class="mb-12 md:mb-0 flex justify-center ">
                         <a href="" class="flex items-center">
                             <img loading="lazy" src="/images/logos/LogoTextDark.png" class="mr-3 h-24"
                                 alt="Logo" />
                         </a>
                     </div>
 
-                    <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-3">
+                    <div class="grid grid-cols-3 gap-8 ">
                         <div>
                             <h2 class="mb-6 text-sm font-semibold  uppercase text-white">Resources</h2>
                             <ul class=" text-gray-400">
@@ -370,10 +374,10 @@
                             <h2 class="mb-6 text-sm font-semibold  uppercase text-white">Legal</h2>
                             <ul class=" text-gray-400">
                                 <li class="mb-4">
-                                    <a href="/privacy_policy" class="hover:underline">Privacy Policy</a>
+                                    <a href="{{route('privacy_policy')}}" class="hover:underline">Privacy Policy</a>
                                 </li>
                                 <li>
-                                    <a href="terms_and_conditions" class="hover:underline">Terms &amp; Conditions</a>
+                                    <a href="{{route('terms_conditions')}}" class="hover:underline">Terms &amp; Conditions</a>
                                 </li>
                             </ul>
                         </div>
@@ -382,8 +386,9 @@
                 </div>
 
                 <hr class="my-6  sm:mx-auto border-gray-700 lg:my-8" />
-                <div class="sm:flex sm:items-center sm:justify-between">
-                    <span class="text-sm sm:text-center text-gray-400">© 2022 <a
+
+                <div class="sm:flex sm:items-center sm:justify-between md:ms-0 pb-4  ms-32">
+                    <span class="text-sm sm:text-center text-gray-400 md:ms-0 -ms-8">© 2022 <a
                             href="https://www.linkedin.com/in/mohamed-galdi/" target='_blank'
                             class="hover:underline">Galdi.dev™</a>. All Rights Reserved.
                     </span>
@@ -430,7 +435,7 @@
                 </div>
                 <div>
                     <a href="javascript:void(0);" onclick="scrollToTop();"
-                        class="text-white absolute top-4 -right-8">
+                        class="text-white absolute top-4 md:-right-8 -right-2">
                         <svg xmlns="http://www.w3.org/2000/svg" height="3em" viewBox="0 0 512 512">
                             <path
                                 d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM135.1 217.4l107.1-99.9c3.8-3.5 8.7-5.5 13.8-5.5s10.1 2 13.8 5.5l107.1 99.9c4.5 4.2 7.1 10.1 7.1 16.3c0 12.3-10 22.3-22.3 22.3H304v96c0 17.7-14.3 32-32 32H240c-17.7 0-32-14.3-32-32V256H150.3C138 256 128 246 128 233.7c0-6.2 2.6-12.1 7.1-16.3z" />

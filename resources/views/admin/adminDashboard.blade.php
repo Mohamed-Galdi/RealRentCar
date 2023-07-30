@@ -124,7 +124,7 @@
                                         <th class="px-4 py-3 w-24">Started at</th>
                                         <th class="px-4 py-3 w-24">End at</th>
                                         <th class="px-4 py-3">Duration</th>
-                                        <th class="px-4 py-3 w-26">Raiminin days</th>
+                                        <th class="px-4 py-3 w-26">Raimining days</th>
                                         <th class="px-4 py-3">Price</th>
                                         <th class="px-4 py-3">Paiment Status</th>
                                         <th class="px-4 py-3">Status</th>
