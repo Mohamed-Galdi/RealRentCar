@@ -25,7 +25,7 @@
         @foreach ($cars as $car)
             <div
                 class="relative md:m-10 m-4w flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
-                <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="#">
+                <a class="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl" href="{{ route('car.reservation', ['car' => $car->id]) }}">
                     <img loading="lazy" class="object-cover" src="{{ $car->image }}" alt="product image" />
                     <span
                         class="absolute top-0 left-0 m-2 rounded-full bg-pr-400 px-2 text-center text-sm font-medium text-white">{{ $car->reduce }}
@@ -33,10 +33,10 @@
                         OFF</span>
                 </a>
                 <div class="mt-4 px-5 pb-5">
-                    <a href="#">
+                    <div>
                         <h5 class=" font-bold text-xl tracking-tight text-slate-900">{{ $car->brand }} {{ $car->model }}
                             {{ $car->engine }}</h5>
-                    </a>
+                    </div>
                     <div class="mt-2 mb-5 flex items-center justify-between">
                         <p>
                             <span class="text-3xl font-bold text-slate-900">{{ $car->price_per_day }}</span>

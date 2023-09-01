@@ -30,7 +30,7 @@
         @forelse ($cars as $car)
             <div
                 class="relative flex flex-col w-full max-w-xs m-10 overflow-hidden bg-white border border-gray-100 rounded-lg shadow-md">
-                <a class="relative flex mx-3 mt-3 overflow-hidden h-60 rounded-xl" href="#">
+                <a class="relative flex mx-3 mt-3 overflow-hidden h-60 rounded-xl" href="{{ route('car.reservation', ['car' => $car->id]) }}">
                     <img loading="lazy" class="object-cover" src="{{ $car->image }}" alt="product image" />
                     <span
                         class="absolute top-0 left-0 px-2 m-2 text-sm font-medium text-center text-white rounded-full bg-pr-400">{{ $car->reduce }}
@@ -38,10 +38,10 @@
                         OFF</span>
                 </a>
                 <div class="px-5 pb-5 mt-4">
-                    <a href="#">
+                    <div>
                         <h5 class="text-xl font-bold tracking-tight text-slate-900">{{ $car->brand }} {{ $car->model }}
                             {{ $car->engine }}</h5>
-                    </a>
+                    </div>
                     <div class="flex items-center justify-between mt-2 mb-5">
                         <p>
                             <span class="text-3xl font-bold text-slate-900">{{ $car->price_per_day }}</span>
