@@ -1,0 +1,31 @@
+name: Deploy RealRentCar Project
+
+on:
+  push:
+    branches:
+      - prod  
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Copy SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.DO_SSH_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+
+      - name: Add SSH key to the agent
+        run: |
+          eval "$(ssh-agent -s)"
+          ssh-add ~/.ssh/id_rsa
+
+      - name: Deploy to DigitalOcean
+        run: |
+          ssh -o StrictHostKeyChecking=no galdi@64.227.64.40 'bash /var/www/realrentcar/deploy.sh'
+        env:
+          SSH_AUTH_SOCK: /tmp/ssh_agent.sock
