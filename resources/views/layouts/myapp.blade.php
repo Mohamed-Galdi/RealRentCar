@@ -11,9 +11,8 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
     @vite('resources/css/app.css')
-    {{-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) --}}
+    @vite('resources/js/app.js')
     <link rel="icon" type="image/x-icon" href="/images/logos/LOGOtext.png">
-    @vite('node_modules/flowbite/dist/flowbite.min.js')
     <style>
         html {
             scroll-behavior: smooth;
