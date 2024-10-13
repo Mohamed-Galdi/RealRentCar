@@ -114,12 +114,4 @@ route::get('invoice/{reservation}', [invoiceController::class, 'invoice'])->name
 
 //---------------------------------------------------------------------------//
 
-
-
-Route::get('/test', function () {
-    return view('test');
-})->name('test');
-
-
-
 Auth::routes();

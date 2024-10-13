@@ -7,6 +7,7 @@ use App\Models\Reservation;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class ReservationController extends Controller
 {
@@ -32,18 +33,30 @@ class ReservationController extends Controller
      */
     public function store(Request $request, $car_id)
     {
+        // dd($request->all());
         $request->validate([
-            'start_date' => 'required|date|after_or_equal:today',
-            'end_date' => 'required|date|after:start_date',
-
+            'full-name' => 'required|string|max:255',
+            'email' => 'required|email',
+            'reservation_dates' => 'required',
         ]);
 
 
         $car = Car::find($car_id);
-        $user = User::find($request->user);
+        $user = Auth::user();
 
         $start = Carbon::parse($request->start_date);
         $end = Carbon::parse($request->end_date);
+
+        // Check if the user has more than 2 reservations
+        $userReservationsCount = Reservation::where('user_id', $user->id)->count();
+        if ($userReservationsCount >= 2) {
+            return redirect()->back()->with('error', 'You cannot have more than 2 active reservations 😉.');
+        }
+
+        // extract start and end date from the request
+        $reservation_dates = explode(' to ', $request->reservation_dates);
+        $start = Carbon::parse($reservation_dates[0]);
+        $end = Carbon::parse($reservation_dates[1]);
 
         $reservation = new Reservation();
         $reservation->user()->associate($user);

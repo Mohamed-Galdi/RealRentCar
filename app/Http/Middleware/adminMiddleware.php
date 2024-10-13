@@ -20,6 +20,6 @@ class adminMiddleware
                     return $next($request);
                 }
 
-                return redirect()->route('admin.login'); // Adjust the route name as per your project's login route
+                return redirect()->route('admin.login');
             }
 }
