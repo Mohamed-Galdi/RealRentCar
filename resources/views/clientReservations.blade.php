@@ -1,49 +1,58 @@
 @extends('layouts.myapp')
 @section('content')
     <div class="mx-auto max-w-screen-xl">
-        <div class=" bg-white rounded-md p-6 flex md:flex-row flex-col md:my-12">
-            <div class="md:w-1/4 md:border-r border-gray-900 flex flex-col gap-8">
-                <div class="flex justify-center">
-                    <img loading="lazy" class="w-[150px]" src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}">
+        <div class="">
+            <div class="my-6 py-6 px-4 bg-white rounded-md flex justify-start items-center flex-wrap md:flex-nowrap gap-y-4 md:gap-y-0">
+                <div class="flex justify-center w-1/2 md:w-1/4">
+                    <img loading="lazy" class="w-44 h-44 rounded-full border-2 border-pr-400 shadow-lg shadow-pr-400/50"
+                        src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}">
                 </div>
-                <div class="text-center md:text-start">
-                    <h2 class="text-lg font-medium text-gray-900"><span
-                            class="text-lg font-car font-normal text-gray-500">Name:
-                        </span>{{ Auth::user()->name }}</h2>
-                    <h2 class="text-lg font-medium text-gray-900"><span
-                            class="text-lg font-car font-normal text-gray-500">Eamil:
-                        </span>{{ Auth::user()->email }}</h2>
+                <div class="w-1/2 md:w-1/4">
+                    <h2 class="font-medium text-slate-600 text-5xl">{{ Auth::user()->name }}</h2>
+                    <h2 class="text-lg font-medium text-gray-900">{{ Auth::user()->email }}</h2>
+                </div>
+                <div class="w-full grid grid-cols-2 gap-4 md:w-1/2">
+                    <div
+                        class="bg-blue-300 p-4 rounded-md border-2 border-blue-700 flex flex-col justify-center items-center">
+                        <p class="text-lg font-car font-normal text-gray-500">Total Reservations </p>
+                        <h2 class="font-medium text-blue-600 text-3xl">{{ Auth::user()->reservations->count() }}</h2>
+                    </div>
 
-                    <h2 class="text-lg font-medium text-green-600"><span
-                            class="text-lg font-car font-normal text-gray-500">Active
-                            Reservations: </span>{{ Auth::user()->reservations->where('status', 'Active')->count() }}</h2>
-                    <h2 class="text-lg font-medium text-yellow-300"><span
-                            class="text-lg font-car font-normal text-gray-500">Pending
-                            Reservations: </span>{{ Auth::user()->reservations->where('status', 'Pending')->count() }}</h2>
-                    <h2 class="text-lg font-medium text-Black"><span
-                            class="text-lg font-car font-normal text-gray-500">Ended
-                            Reservations: </span>{{ Auth::user()->reservations->where('status', 'Ended')->count() }}</h2>
-                    <h2 class="text-lg font-medium text-red-600"><span
-                            class="text-lg font-car font-normal text-gray-500">Canceled
-                            Reservations: </span>{{ Auth::user()->reservations->where('status', 'Canceled')->count() }}</h2>
-                    <h2 class="text-lg font-medium text-pr-400"><span
-                            class="text-lg font-car font-normal text-gray-500">Total
-                            Reservations: </span>{{ Auth::user()->reservations->count() }}</h2>
+                    <div
+                        class="bg-green-300 p-4 rounded-md border-2 border-green-700 flex flex-col justify-center items-center">
+                        <p class="text-lg font-car font-normal text-gray-500">Active Reservations </p>
+                        <h2 class="font-medium text-green-600 text-3xl">
+                            {{ Auth::user()->reservations->where('status', 'Active')->count() }}</h2>
+                    </div>
 
+                    <div
+                        class="bg-yellow-300 p-4 rounded-md border-2 border-yellow-700 flex flex-col justify-center items-center">
+                        <p class="text-lg font-car font-normal text-gray-500">Pending Reservations </p>
+                        <h2 class="font-medium text-yellow-600 text-3xl">
+                            {{ Auth::user()->reservations->where('status', 'Pending')->count() }}</h2>
+                    </div>
+
+                    <div
+                        class="bg-red-300 p-4 rounded-md border-2 border-red-700 flex flex-col justify-center items-center">
+                        <p class="text-lg font-car font-normal text-gray-500">Canceled Reservations </p>
+                        <h2 class="font-medium text-red-600 text-3xl">
+                            {{ Auth::user()->reservations->where('status', 'Canceled')->count() }}</h2>
+                    </div>
                 </div>
             </div>
 
-            <div class="md:w-3/4 mt-8 md:mt-0">
+            <div class="bg-white p-4 rounded-md my-12">
+                <h2 class="text-3xl font-car font-medium text-gray-500 text-center mb-4">Reservations</h2>
                 @forelse ($reservations as $reservation)
-                    <div class="flex justify-center  md:m-6 mb-4 rounded-lg bg-gray-200">
-                        <div class="w-[350px] h-[250px]  overflow-hidden p-1 hidden md:block  m-3 rounded-md">
+                    <div class="flex justify-center w-full mb-4 rounded-lg bg-gray-200">
+                        <div class="md:w-1/3 w-full h-[250px]  overflow-hidden p-1 hidden md:block  m-3 rounded-md">
                             <img loading="lazy" class="w-full h-full object-cover overflow-hidden rounded-md"
                                 src="{{ $reservation->car->image }}" alt="">
                         </div>
-                        <div class="m-3 p-1 md:w-[500px]">
+                        <div class="m-3 p-1 md:w-2/3 w-full">
                             <h2 class="mt-2 font-car text-gray-800 text-2xl font-medium">{{ $reservation->car->brand }}
                                 {{ $reservation->car->model }} {{ $reservation->car->engine }}</h2>
-                            <div class="mt-4 flex justify-start md:gap-10 gap-5">
+                            <div class="mt-4 flex md:flex-row flex-col justify-start md:gap-10 gap-5">
                                 <div class="flex gap-2 items-center">
                                     <p class="text-lg font-medium">From: </p>
                                     <p class="text-pr-600 font-semibold text-lg">
@@ -102,12 +111,12 @@
                             </div>
 
                             <div class="w-[350px] h-[250px]  overflow-hidden p-1  md:hidden  mx-auto mt-3 rounded-md">
-                            <img loading="lazy" class="w-full h-full object-cover overflow-hidden rounded-md"
-                                src="{{ $reservation->car->image }}" alt="">
-                        </div>
+                                <img loading="lazy" class="w-full h-full object-cover overflow-hidden rounded-md"
+                                    src="{{ $reservation->car->image }}" alt="">
+                            </div>
 
                             <div class="mt-8 text-center w-full px-2">
-                                <a href="{{ route('invoice', ['reservation' => $reservation->id]) }}">
+                                <a href="{{ route('invoice', ['reservation' => $reservation->id]) }}" target="_blank">
                                     <button class="bg-pr-400 p-3 text-white font-bold hover:bg-black w-full rounded-md ">
                                         Get Reservation Invoice</button>
                                 </a>

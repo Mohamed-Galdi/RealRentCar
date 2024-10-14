@@ -20,6 +20,9 @@ return new class extends Migration
             $table->string('image')->nullable();
             $table->string('quantity');
             $table->string('status')->default('available');
+            $table->integer('reduce');
+            $table->integer('stars');
+
             $table->timestamps();
         });
     }

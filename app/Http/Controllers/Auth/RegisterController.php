@@ -57,7 +57,7 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'email' => ['required', 'string', 'email:rfc,dns', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
 
         ]);
@@ -111,7 +111,7 @@ class RegisterController extends Controller
             $avatarName = $request->name . '-' . Str::random(10) . '.' . $request->file('avatar_choose')->extension();
             $avatarNameNospaces = preg_replace('/\s+/', '', $avatarName);
             $path = $request->file('avatar_choose')->storeAs('/images/avatars', $avatarNameNospaces);
-            $user->avatar = '/'.$path;
+            $user->avatar = '/' . $path;
             $user->save();
         } else {
             $user->avatar = $request->avatar_option;

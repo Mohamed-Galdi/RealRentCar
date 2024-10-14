@@ -6,7 +6,6 @@ use App\Http\Controllers\CarController;
 use App\Http\Controllers\ReservationController;
 use App\Http\Controllers\clientCarController;
 use App\Http\Controllers\adminDashboardController;
-use App\Http\Controllers\InsuranceController;
 use App\Http\Controllers\usersController;
 use App\Http\Controllers\addNewAdminController;
 use App\Http\Controllers\invoiceController;
@@ -67,9 +66,6 @@ Route::prefix('admin')->middleware('admin')->group(function () {
     Route::resource('cars', CarController::class);
 
     // Route::resource('reservations', ReservationController::class);
-
-    Route::resource('insurances', InsuranceController::class);
-
     Route::get('/users', function () {
 
         $admins = User::where('role', 'admin')->get();
@@ -113,13 +109,5 @@ route::get('invoice/{reservation}', [invoiceController::class, 'invoice'])->name
 
 
 //---------------------------------------------------------------------------//
-
-
-
-Route::get('/test', function () {
-    return view('test');
-})->name('test');
-
-
 
 Auth::routes();

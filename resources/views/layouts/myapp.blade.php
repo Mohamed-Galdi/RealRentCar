@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="csrf-token" content="{{ csrf_token() }}">
+    <title>{{ config('app.name', 'RealRentCar') }}</title>
+    {{-- jquery --}}
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    {{-- sweet alert --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @include('flatpickr::components.style')
     @vite('resources/css/app.css')
     @vite('resources/js/app.js')
-    <link rel="icon" type="image/x-icon" href="/images/logos/LOGOtext.png">
     <style>
         html {
             scroll-behavior: smooth;
@@ -153,15 +154,6 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('insurances.index') }}">
-                                        <div class="group text-center">
-                                            <div class="group-hover:cursor-pointer">Insurances</div>
-                                            <div
-                                                class="block invisible bg-pr-400 w-20 h-1 rounded-md text-center -bottom-1 mx-auto relative group-hover:visible">
-                                            </div>
-                                    </a>
-                                </li>
-                                <li>
                                     <a href="{{ route('users') }}">
                                         <div class="group text-center">
                                             <div class="group-hover:cursor-pointer">Users</div>
@@ -180,8 +172,7 @@
                             <p> Admin ( {{ Auth::user()->name }} ) </p>
                             <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
                                 </path>
                             </svg>
                         </button>
@@ -265,8 +256,7 @@
                             {{ Auth::user()->name }}
                             <svg class="w-4 h-4 ml-2" aria-hidden="true" fill="none" stroke="currentColor"
                                 viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 9l-7 7-7-7">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7">
                                 </path>
                             </svg>
                         </button>
@@ -373,10 +363,12 @@
                             <h2 class="mb-6 text-sm font-semibold  uppercase text-white">Legal</h2>
                             <ul class=" text-gray-400">
                                 <li class="mb-4">
-                                    <a href="{{route('privacy_policy')}}" class="hover:underline">Privacy Policy</a>
+                                    <a href="{{ route('privacy_policy') }}" class="hover:underline">Privacy
+                                        Policy</a>
                                 </li>
                                 <li>
-                                    <a href="{{route('terms_conditions')}}" class="hover:underline">Terms &amp; Conditions</a>
+                                    <a href="{{ route('terms_conditions') }}" class="hover:underline">Terms &amp;
+                                        Conditions</a>
                                 </li>
                             </ul>
                         </div>
@@ -457,5 +449,6 @@
         });
     }
 </script>
+@include('flatpickr::components.script')
 
 </html>

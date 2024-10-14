@@ -35,7 +35,7 @@
                         @csrf
                         <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
 
-                            <input type="text" hidden name="user" value="{{ Auth::user()->id }}">
+                            {{-- <input type="text" hidden name="user" value="{{ Auth::user()->id }}"> --}}
 
                             <div class="sm:col-span-3">
                                 <label for="full-name" class="block text-sm font-medium leading-6 text-gray-900">Full
@@ -60,28 +60,13 @@
                                     <span class="text-red-500">{{ $message }}</span>
                                 @enderror
                             </div>
-
-                            <div class="sm:col-span-3">
-                                <label for="start_date" class="block text-sm font-medium leading-6 text-gray-900">Start at
-                                </label>
-                                <div class="mt-2">
-                                    <input type="date" name="start_date" id="start_date"
-                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm sm:leading-6">
-                                </div>
-                                @error('start_date')
-                                    <span class="text-red-500">{{ $message }}</span>
-                                @enderror
-                            </div>
-                            <div class="sm:col-span-3">
-                                <label for="end_date" class="block text-sm font-medium leading-6 text-gray-900">End at
-                                </label>
-                                <div class="mt-2">
-                                    <input type="date" name="end_date" id="end_date"
-                                        class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-pr-400 sm:text-sm sm:leading-6">
-                                </div>
-                                @error('end_date')
-                                    <span class="text-red-500">{{ $message }}</span>
-                                @enderror
+                            {{-- New Date Input --}}
+                            <div class="sm:col-span-full">
+                                <label for="reservation"
+                                    class="block text-sm font-medium leading-6 text-gray-900">Reservation
+                                    Dates</label>
+                                <x-flatpickr range id="laravel-flatpickr" name="reservation_dates" class="w-full rounded-md"
+                                    placeholder="Reservation Dates" />
                             </div>
                         </div>
                         <div class="mt-12 md:block hidden  ">
@@ -122,28 +107,17 @@
                     </div>
                 </div>
 
-                <div class=" me-16 flex   mt-6 ms-4">
-
-                    @if ($car->insurance)
-                        <p class="mx-2 font-car text-gray-700  text-sm"><span
-                                class="font-car text-gray-600 text-lg">Insurance: </span>{{ $car->insurance->type }} from
-                            {{ $car->insurance->company }} Insurances</p>
-                    @else
-                        <p class="mx-3 text-red-600 text-md "><span class="font-car text-gray-600 text-lg">Insurance:
-                            </span> Not asured !!!</p>
-                    @endif
-                </div>
 
                 <div class=" w-full   mt-8 ms-8">
-                    <p id="duration" class="font-car text-gray-600 text-lg ms-2">Duration: <span
-                            class="mx-2 font-car text-md font-medium text-gray-700 border border-pr-400 p-2 rounded-md "> X
+                    <p id="duration" class="font-car text-gray-600 text-lg ms-2">Estimated Duration: <span
+                            class="mx-2 font-car text-md font-medium text-gray-700 border border-pr-400 p-2 rounded-md "> --
                             days</span>
                     </p>
                 </div>
 
                 <div class=" w-full   mt-8 ms-8">
-                    <p id="total-price" class="font-car text-gray-600 text-lg ms-2">Total Price: <span
-                            class="mx-2 font-car text-md font-medium text-gray-700 border border-pr-400 p-2 rounded-md "> Y
+                    <p id="total-price" class="font-car text-gray-600 text-lg ms-2">Estimated Price: <span
+                            class="mx-2 font-car text-md font-medium text-gray-700 border border-pr-400 p-2 rounded-md "> --
                             $</span>
                     </p>
                 </div>
@@ -155,35 +129,62 @@
             </div>
         </div>
 
+        @if (session('error'))
+            <script>
+                const Toast = Swal.mixin({
+                    toast: true,
+                    position: "top-end",
+                    showConfirmButton: false,
+                    timer: 3000,
+                    timerProgressBar: true,
+                    didOpen: (toast) => {
+                        toast.onmouseenter = Swal.stopTimer;
+                        toast.onmouseleave = Swal.resumeTimer;
+                    }
+                });
+                Toast.fire({
+                    icon: "error",
+                    title: "{{ session('error') }}"
+                });
+            </script>
+        @endif
+
 
 
     </div>
 
 
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script>
         $(document).ready(function() {
-            $('#start_date, #end_date').change(function() {
-                var startDate = new Date($('#start_date').val());
-                var endDate = new Date($('#end_date').val());
+            var flatpickrElement = document.getElementById('laravel-flatpickr');
 
-                if (startDate && endDate && startDate <= endDate) {
-                    var duration = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
-                    var pricePerDay = {{ $car->price_per_day }};
-                    var totalPrice = duration * pricePerDay;
+            if (flatpickrElement && flatpickrElement._flatpickr) {
+                flatpickrElement._flatpickr.config.onChange.push(function(selectedDates, dateStr, instance) {
+                    if (selectedDates.length === 2) {
+                        var startDate = selectedDates[0];
+                        var endDate = selectedDates[1];
 
-                    $('#duration span').text(duration + ' days');
-                    $('#total-price span').text(totalPrice + ' $');
-                } else {
-                    $('#duration span').text('X days');
-                    $('#total-price span').text('Y $');
-                }
+                        if (startDate && endDate && startDate <= endDate) {
+                            var duration = Math.ceil((endDate - startDate) / (1000 * 60 * 60 * 24));
+                            var pricePerDay = {{ $car->price_per_day }};
+                            var totalPrice = duration * pricePerDay;
+                            $('#duration span').text(duration + ' days');
+                            $('#total-price span').text(totalPrice + ' $');
+                        } else {
+                            $('#duration span').text('-- days');
+                            $('#total-price span').text('-- $');
+                        }
+                    } else {
+                        $('#duration span').text('-- days');
+                        $('#total-price span').text('-- $');
+                    }
+                });
+            }
+
+            document.getElementById("mobile_submit_button").addEventListener("click", function() {
+                document.getElementById("reservation_form").submit();
             });
-        });
-
-        document.getElementById("mobile_submit_button").addEventListener("click", function() {
-            document.getElementById("reservation_form").submit();
         });
     </script>
 @endsection
