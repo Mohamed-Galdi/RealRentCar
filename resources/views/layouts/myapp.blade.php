@@ -152,7 +152,6 @@
                                             </div>
                                     </a>
                                 </li>
-
                                 <li>
                                     <a href="{{ route('users') }}">
                                         <div class="group text-center">
