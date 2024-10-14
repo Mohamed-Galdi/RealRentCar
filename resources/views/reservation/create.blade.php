@@ -107,17 +107,6 @@
                     </div>
                 </div>
 
-                <div class=" me-16 flex   mt-6 ms-4">
-
-                    @if ($car->insurance)
-                        <p class="mx-2 font-car text-gray-700  text-sm"><span
-                                class="font-car text-gray-600 text-lg">Insurance: </span>{{ $car->insurance->type }} from
-                            {{ $car->insurance->company }} Insurances</p>
-                    @else
-                        <p class="mx-3 text-red-600 text-md "><span class="font-car text-gray-600 text-lg">Insurance:
-                            </span> Not asured !!!</p>
-                    @endif
-                </div>
 
                 <div class=" w-full   mt-8 ms-8">
                     <p id="duration" class="font-car text-gray-600 text-lg ms-2">Estimated Duration: <span

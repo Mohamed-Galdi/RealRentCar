@@ -197,6 +197,29 @@
         </div>
         <h3 style="text-align: center; margin-top: 30px">Thank you for choosing and trusting our car company ❤️</h3>
     </div>
+    <script>
+          window.addEventListener('load', function() {
+        // Function to print the page
+        function printPage() {
+            window.print(); // Print the page
+            
+            // Close the window after printing or cancelling
+            setTimeout(function() {
+                window.close(); // Close the window
+            }, 1000); // Adjust the delay as needed (milliseconds)
+            
+            // After a short delay to allow the page to render, convert it to PDF
+            setTimeout(function() {
+                const pdf = new jsPDF(); // Create a new jsPDF instance
+                pdf.addHTML(document.body, function() {
+                    pdf.save('page_as_pdf.pdf'); // Save the PDF as 'page_as_pdf.pdf'
+                });
+            }, 2000); // Adjust the delay as needed (milliseconds)
+        }
+
+        printPage(); // Call the function to print the page and convert it to PDF
+    });
+    </script>
 </body>
 
 </html>

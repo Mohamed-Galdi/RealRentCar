@@ -154,15 +154,6 @@
                                 </li>
 
                                 <li>
-                                    <a href="{{ route('insurances.index') }}">
-                                        <div class="group text-center">
-                                            <div class="group-hover:cursor-pointer">Insurances</div>
-                                            <div
-                                                class="block invisible bg-pr-400 w-20 h-1 rounded-md text-center -bottom-1 mx-auto relative group-hover:visible">
-                                            </div>
-                                    </a>
-                                </li>
-                                <li>
                                     <a href="{{ route('users') }}">
                                         <div class="group text-center">
                                             <div class="group-hover:cursor-pointer">Users</div>

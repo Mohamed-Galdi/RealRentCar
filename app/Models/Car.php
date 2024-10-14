@@ -12,9 +12,4 @@ class Car extends Model
     {
         return $this->hasMany(Reservation::class);
     }
-
-    public function insurance()
-    {
-        return $this->hasOne(Insurance::class);
-    }
 }

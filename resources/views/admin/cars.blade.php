@@ -34,9 +34,7 @@
                         <th scope="col" class="px-6 py-3">
                             quantity
                         </th>
-                        <th scope="col" class="px-6 py-3">
-                            insurance_status
-                        </th>
+                        
                         <th scope="col" class="px-6 py-3">
                             reserved
                         </th>
@@ -72,18 +70,7 @@
                             <td class="px-6 py-4">
                                 {{ $car->quantity }}
                             </td>
-                            <td class="px-6 py-4">
-
-
-                                @if ($car->insu_id != null)
-                                    <p class=" rounded-lg bg-green-100  text-green-700 text-center p-1">
-                                        Active</p>
-                                @else
-                                    <p class=" rounded-lg bg-red-100  text-red-700 text-center p-1">
-                                        Not Active</p>
-                                @endif
-
-                            </td>
+                            
                             <td class="px-6 py-4">
                                 {{ $car->status }}
                             </td>
@@ -104,6 +91,27 @@
             </table>
         </div>
 
+        @if (session('success'))
+            <script>
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Car deleted successfully.',
+                    showConfirmButton: false,
+                    timer: 1500
+                });
+            </script>
+        @endif
+
+        @if (session('error'))
+            <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: '{{ session('error') }}',
+                    showConfirmButton: false,
+                    timer: 3500
+                });
+            </script>
+        @endif
     </div>
     <div class="flex justify-center mb-12 w-full">
         {{ $cars->links('pagination::tailwind') }}

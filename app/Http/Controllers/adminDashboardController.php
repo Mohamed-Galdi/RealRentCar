@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Car;
 use App\Models\Reservation;
-use App\Models\Insurance;
 
 class adminDashboardController extends Controller
 {
@@ -20,8 +19,7 @@ class adminDashboardController extends Controller
         $cars = Car::all();
 
         $reservations = Reservation::paginate(8);
-        $insurances = Insurance::all();
         $avatars = User::all();
-        return view('admin.adminDashboard', compact('clients', 'avatars', 'admins', 'cars', 'reservations', 'insurances'));
+        return view('admin.adminDashboard', compact('clients', 'avatars', 'admins', 'cars', 'reservations'));
     }
 }

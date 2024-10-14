@@ -15,7 +15,7 @@ class CarController extends Controller
      */
     public function index()
     {
-        $cars = Car::paginate(8);
+        $cars = Car::latest()->paginate(8);
         return view('admin.cars', compact('cars'));
     }
 
@@ -39,7 +39,6 @@ class CarController extends Controller
             'engine' => 'required',
             'quantity' => 'required',
             'price_per_day' => 'required',
-            'insurance_status' => 'required',
             'status' => 'required',
             'reduce' => 'required',
             'stars' => 'required',
@@ -52,7 +51,6 @@ class CarController extends Controller
         $car->engine = $request->engine;
         $car->quantity = $request->quantity;
         $car->price_per_day = $request->price_per_day;
-        // $car->insurance_status = $request->insurance_status;
         $car->status = $request->status;
         $car->reduce = $request->reduce;
         $car->stars = $request->stars;
@@ -96,7 +94,6 @@ class CarController extends Controller
             'engine' => 'required',
             'quantity' => 'required',
             'price_per_day' => 'required',
-            'insurance_status' => 'required',
             'status' => 'required',
             'reduce' => 'required',
             'stars' => 'required',
@@ -109,7 +106,6 @@ class CarController extends Controller
         $car->engine = $request->engine;
         $car->quantity = $request->quantity;
         $car->price_per_day = $request->price_per_day;
-        $car->insurance_status = $request->insurance_status;
         $car->status = $request->status;
         $car->reduce = $request->reduce;
         $car->stars = $request->stars;
@@ -136,17 +132,28 @@ class CarController extends Controller
     public function destroy(Car $car)
     {
         $car = Car::findOrFail($car->id);
-        if ($car->image) {
-            // Get the filename from the image path
-            $filename = basename($car->image);
-
-            // Delete the image file from the storage
-            Storage::disk('local')->delete('images/cars/' . $filename);
-            $car->delete();
+        
+        // Check if the car has any active reservations
+        $activeReservations = $car->reservations()->where('status', 'Active')->count();
+        
+        if ($activeReservations > 0) {
+            // Prevent deletion and return with error message
+            return redirect()->route('cars.index')->with('error', 'Cannot delete car with active reservations.');
         }
+        
+        // Delete inactive reservations
+        $car->reservations()->where('status', '!=', 'Active')->delete();
+        
+        // if ($car->image) {
+        //     // Get the filename from the image path
+        //     $filename = basename($car->image);
 
+        //     // Delete the image file from the storage
+        //     Storage::disk('local')->delete('images/cars/' . $filename);
+        // }
+        
+        $car->delete();
 
-
-        return redirect()->route('cars.index');
+        return redirect()->route('cars.index')->with('success', 'Car deleted successfully.');
     }
 }
