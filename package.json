@@ -8,16 +8,20 @@
     "devDependencies": {
         "@popperjs/core": "^2.11.6",
         "autoprefixer": "^10.4.14",
-        "axios": "^1.1.2",
+        "axios": "^1.7.7",
         "bootstrap": "^5.2.3",
         "laravel-vite-plugin": "^0.7.5",
         "postcss": "^8.4.31",
         "sass": "^1.56.1",
         "tailwindcss": "^3.3.2",
-        "vite": "^4.0.0"
+        "vite": "^4.5.5"
     },
     "dependencies": {
         "@tailwindcss/forms": "^0.5.3",
-        "flowbite": "^1.6.5"
+        "braces": "^3.0.3",
+        "flowbite": "^1.6.5",
+        "follow-redirects": "^1.15.9",
+        "micromatch": "^4.0.8",
+        "rollup": "^3.29.5"
     }
 }
